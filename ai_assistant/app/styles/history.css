@@ -1,0 +1,101 @@
+.history-background{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 35dvh;
+    overflow: hidden;
+    background-color: var(--history-background-color);
+    padding: 1em;
+    margin: 1em;
+    margin-right: 0;
+    border-radius: 1em;
+}
+.history{
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+.history ul{
+    list-style: none;
+}
+.history ul li{
+    padding: 10px 0;
+    border-bottom: 1px solid var(--text-color);
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+.history ul li a{
+    word-break: break-word;
+    overflow-wrap: break-word;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-color); /* Use variable for link text color */
+    width: 100%;
+    padding: 5px;
+}
+
+#delete-chat-button{
+    width: 0;
+    height: 80%;
+    visibility: hidden;
+    border-radius: 5px;
+    background-color: var(--close-button-color);
+    transition: all 0.2s ease-in-out;
+}
+
+#delete-chat-button svg{
+    width: 100%;
+    padding: 3px;
+}
+
+#delete-chat-button:hover{
+    background-color: var(--close-button-hover-color);
+}
+
+.history ul li a:hover{
+    background-color: var(--input-button-hover-color);
+}
+.history-models{
+    position: relative;
+    height: 86dvh;
+    /* padding-bottom: 3dvh; */
+}
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.chat-input {
+    border-color: var(--input-border-color);
+    color: var(--text-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    width: 80%;
+    height: 50px;
+    box-sizing: border-box;
+    line-height: 30px;
+}
+.save-btn, .newChat-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 20%;
+    height: 50px;
+    background-color: var(--input-button-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 0.9em;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.newChat-btn{
+    margin-left: 0px;
+}
+  

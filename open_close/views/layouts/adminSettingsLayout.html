@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-light d-flex justify-content-center align-items-center vh-100">
+    <div class="bg-white p-3 p-md-4 rounded-4 shadow-sm d-flex flex-column" style="width: 95vw; height: 90vh; max-width: 1600px; max-height: 1000px">
+      <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4">
+        <ul class="nav nav-tabs border-0">
+          <li class="nav-item">
+            <a class="nav-link {{#unless statistics}} active {{/unless}}" href="/settings">{{lang.settings.global.userAdminTab}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{#if statistics}} active {{/if}}" href="/settings/statistics">{{lang.settings.global.statisticTab}}</a>
+          </li>
+        </ul>
+        <div>
+          <button id="logout-btn" class="btn btn-link">{{lang.settings.global.logoutBtn}}</button>
+        </div>
+      </div>
+
+      {{#unless statistics}}
+      <script>
+        let currentUser = 0;
+
+        const userEdit = async (id) => {
+          try {
+            document.querySelector(".companyInput").disabled = false;
+            document.querySelector(".nameInput").disabled = false;
+            document.querySelector(".surnameInput").disabled = false;
+            document.querySelector(".streetInput").disabled = false;
+            document.querySelector(".postalCodeInput").disabled = false;
+            document.querySelector(".cityInput").disabled = false;
+            document.querySelector(".countryInput").disabled = false;
+            document.querySelector(".phoneNumberInput").disabled = false;
+            document.querySelector(".latitudeInput").disabled = false;
+            document.querySelector(".longitudeInput").disabled = false;
+            document.querySelector(".saveButton").disabled = false;
+            document.querySelector(".renewButton").disabled = false;
+
+            const user = await (await fetch(window.location.protocol + "//" + window.location.host + "/api/v1/users/" + id)).json();
+
+            currentUser = id;
+
+            document.querySelector(".companyInput").value = user.company;
+            document.querySelector(".nameInput").value = user.name;
+            document.querySelector(".surnameInput").value = user.surname;
+            document.querySelector(".streetInput").value = user.street;
+            document.querySelector(".postalCodeInput").value = user.postalCode;
+            document.querySelector(".cityInput").value = user.city;
+            document.querySelector(".countryInput").value = user.country;
+            document.querySelector(".phoneNumberInput").value = user.phoneNumber;
+            document.querySelector(".latitudeInput").value = user.coordinates.latitude;
+            document.querySelector(".longitudeInput").value = user.coordinates.longitude;
+          } catch (error) {
+            console.log(error);
+          }
+        };
+      </script>
+      <div class="d-flex flex-row" style="width: 100%; height: 100%; overflow: hidden">
+        <div class="overflow-scroll px-3" style="width: 100%; box-sizing: border-box">
+          {{#each users}}
+          <div class="btn btn-secondary my-2 p-2" style="width: 100%; box-sizing: border-box" onclick="userEdit('{{this.userId}}')">{{this.email}}</div>
+          <br />
+          {{/each}}
+        </div>
+        <form class="overflow-scroll px-3" style="width: 100%">
+          <div class="form-group">
+            <label for="company" class="fs-4 m-1">{{lang.settings.information.company}}</label>
+            <input type="text" name="company" class="companyInput form-control m-1" value="{{user.company}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="name" class="fs-4 m-1">{{lang.settings.information.name}}</label>
+            <input type="text" name="name" class="nameInput form-control m-1" value="{{user.name}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="surname" class="fs-4 m-1">{{lang.settings.information.surname}}</label>
+            <input type="text" name="surname" class="surnameInput form-control m-1" value="{{user.surname}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="street" class="fs-4 m-1">{{lang.settings.information.street}}</label>
+            <input type="text" name="street" class="streetInput form-control m-1" value="{{user.street}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="postalCode" class="fs-4 m-1">{{lang.settings.information.postalCode}}</label>
+            <input type="text" name="postalCode" class="postalCodeInput form-control m-1" value="{{user.postalCode}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="city" class="fs-4 m-1">{{lang.settings.information.city}}</label>
+            <input type="text" name="city" class="cityInput form-control m-1" value="{{user.city}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="country" class="fs-4 m-1">{{lang.settings.information.country}}</label>
+            <input type="text" name="country" class="countryInput form-control m-1" value="{{user.country}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber" class="fs-4 m-1">{{lang.settings.information.phoneNumber}}</label>
+            <input type="tel" name="phoneNumber" class="phoneNumberInput form-control m-1" value="{{user.phoneNumber}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="latitude" class="fs-4 m-1">{{lang.settings.information.latitude}}</label>
+            <input type="latitude" name="latitude" class="latitudeInput form-control m-1" value="{{user.latitude}}" required disabled />
+          </div>
+          <div class="form-group">
+            <label for="longitude" class="fs-4 m-1">{{lang.settings.information.longitude}}</label>
+            <input type="longitude" name="longitude" class="longitudeInput form-control m-1" value="{{user.longitude}}" required disabled />
+          </div>
+          <button type="submit" class="saveButton btn btn-primary position-relative start-50 translate-middle mt-5 fs-4" disabled>{{lang.settings.information.saveButton}}</button><br />
+          <button type="submit" class="renewButton btn btn-primary position-relative start-50 translate-middle mt-3 fs-4" disabled>{{lang.settings.information.renewButton}}</button>
+        </form>
+      </div>
+      <script>
+        document.querySelector(".saveButton").addEventListener("click", async (event) => {
+          event.preventDefault();
+          try {
+            await fetch(window.location.protocol + "//" + window.location.host + "/api/v1/users/" + currentUser, {
+              method: "PATCH",
+              body: JSON.stringify({
+                company: document.querySelector(".companyInput").value,
+                name: document.querySelector(".nameInput").value,
+                surname: document.querySelector(".surnameInput").value,
+                street: document.querySelector(".streetInput").value,
+                postalCode: document.querySelector(".postalCodeInput").value,
+                city: document.querySelector(".cityInput").value,
+                country: document.querySelector(".countryInput").value,
+                phoneNumber: document.querySelector(".phoneNumberInput").value,
+                coordinates: {
+                  latitude: document.querySelector(".latitudeInput").value,
+                  longitude: document.querySelector(".longitudeInput").value,
+                },
+              }),
+              headers: new Headers({ "content-type": "application/json" }),
+            });
+
+            document.querySelector(".saveButton").innerHTML = "{{lang.settings.information.savedText}}";
+          } catch (error) {
+            document.querySelector(".saveButton").innerHTML = "{{lang.settings.information.saveFailedText}}";
+          }
+
+          setTimeout(() => {
+            document.querySelector(".saveButton").innerHTML = "{{lang.settings.information.saveButton}}";
+          }, 1000);
+        });
+
+        document.querySelector(".renewButton").addEventListener("click", async (event) => {
+          event.preventDefault();
+          try {
+            await fetch(window.location.protocol + "//" + window.location.host + "/api/v1/users/renew/" + currentUser);
+
+            document.querySelector(".renewButton").innerHTML = "{{lang.settings.information.renewedText}}";
+          } catch (error) {
+            document.querySelector(".renewButton").innerHTML = "{{lang.settings.information.renewFailedText}}";
+          }
+
+          setTimeout(() => {
+            document.querySelector(".renewButton").innerHTML = "{{lang.settings.information.renewButton}}";
+          }, 1000);
+        });
+      </script>
+      {{/unless}} {{#if statistics}}
+      <div>
+        <p class="fs-4">{{lang.settings.statistics.title}}</p>
+        <p>{{lang.settings.statistics.customerAmount}} {{customerAmount}}</p>
+        <p>{{lang.settings.statistics.customerRenewAmount}} {{customerRenewAmount}}</p>
+        <p>{{lang.settings.statistics.customerNonRenewAmount}} {{customerNonRenewAmount}}</p>
+      </div>
+      {{/if}}
+    </div>
+
+    <script>
+      // Logout Logic
+      const logoutBtn = document.getElementById("logout-btn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          // Clear localStorage
+          localStorage.clear();
+
+          // Clear Cookies
+          document.cookie.split(";").forEach((c) => {
+            document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+          });
+
+          // Redirect to Home
+          window.location.href = "/";
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+:root {
+    /* Colors */
+    --header-background-color: #7e7e7e; /* New header background color */
+    --header-text-color: #ffffff; /* Header text color */
+    --background-color: #8B9635; /* Main background color */
+    --text-color: #474D22; /* Main text color */
+    --input-background-color: #ffffff; /* Background color for input fields */
+    --input-button-color: #8B9635; /* Button color */
+    --input-button-hover-color: #6b7c2b; /* Hover color for input buttons */
+    --user-message-background-color: #8B9635; /* Background color for user messages */
+    --user-message-text-color: #000; /* Text color for user messages */
+    --ai-message-background-color: #FCFCEB; /* Background color for AI messages */
+    --ai-message-text-color: #000; /* Text color for AI messages */
+    --button-background-color: #8B9635; /* Button background color */
+    --button-hover-background-color: #6b7c2b; /* Button hover color */
+    --models-background-color: #ffffff; /* Background for models section */
+    --history-background-color: #f9f9f9; /* Background color for history */
+    --left-panel-background-color: #79832e; /* Background color for left panel */
+    --conversation-background-color: #79832e; /* Background color for conversation container */
+    --doc-background-color: #ffffff; /* Background color for documents */
+    --close-button-color: red;
+    --close-button-hover-color: #9e0101; /*NEW*/
+    --apply-button-color:#8B9635;
+    --apply-button-hover-color:#6b7c2b;
+    --burger-menu-background-color: #79832e;  /*NEW*/
+    --overlay-text-color:white; /*NEW*/  
+    /* FAQ Colors */
+    --faq-background-color: #474D22; /* Background color for FAQ section */
+    --faq-heading-color: #8B9635; /* Heading color for FAQ section */
+    --faq-item-background-color: #fefefe; /* Background color for FAQ items */
+    --faq-item-heading-color: #474D22; /* Heading color for FAQ items */
+    --faq-item-text-color: #333; /* Text color for FAQ items */
+    --faq-item-hover-background-color: #e0e0e0; /* Hover background color for FAQ items */
+    --popup-background-color: #8B9635;
+    --pop-up-text: #000; /* Text color for pop-ups */
+    --input-border-color: #8B9635; /* Input border color */
+    --font-family: 'Poppins', 'sans-serif';/* Default font family */
+    --font-size: 16px;
+}

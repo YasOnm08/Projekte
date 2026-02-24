@@ -1,0 +1,264 @@
+{
+  "@@locale": "en",
+  "appTitle": "Open Close",
+  "home": {
+    "heroTitle": "OPEN CLOSE",
+    "heroSubtitle": "Your partner for opening-hours management",
+    "buyNow": "BUY NOW!"
+  },
+  "navigation": {
+    "home": "Home",
+    "products": "Product",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "login": "Login",
+    "language": "Language"
+  },
+  "products": {
+    "title": "Our Product",
+    "subtitle": "Manage your opening hours easily, even on the go",
+    "packageName": "Our Web Solution",
+    "description": "With Open Close, you can adjust your opening hours anytime and from anywhere. You can add special dates and manage special hours and closing days – simple and clear.",
+    "features": {
+      "feature1": "Opening hours adjustable in seconds.",
+      "feature2": "Fast and clear customer information.",
+      "feature3": "Easy integration into your website.",
+      "feature4": "Adaptable to your website design.",
+      "feature5": "Flexible multilingual support."
+    },
+    "price": "CHF 12/year",
+    "buyNow": "Buy Now"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most common questions",
+    "questions": {
+      "registration": "How can I register?",
+      "paymentMethods": "Which payment methods are accepted?",
+      "subscription": "Can I cancel my subscription?",
+      "moneyBack": "Is there a money-back guarantee?"
+    },
+    "answers": {
+      "registration": "Registration works like on most websites: click on \"Register\" or \"Login\", enter your email address and password, and confirm. If you do not yet have an account, you can create one via \"Register\".",
+      "paymentMethods": "All common online payment methods are available. You can choose the option that suits you best. Credit cards, debit cards, and modern digital payment methods are accepted.",
+      "subscription": "Yes, you can cancel your subscription at any time. Cancellation is done easily through your user account, and no further fees will be charged after the end of the already paid period.",
+      "moneyBack": "Yes, we offer a money-back guarantee. If you are not satisfied with your purchase, you can request a refund within the specified period and the amount will be returned without complications."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Do you have questions? We are happy to help",
+    "introTitle": "We look forward to hearing from you!",
+    "introText": "Contact us – our team is here to support you and will respond as quickly as possible.",
+    "email": "Email",
+    "phone": "Phone",
+    "hours": "Opening Hours",
+    "hoursValue": "Mon–Fri: 9:00–18:00",
+    "form": {
+      "name": "Name *",
+      "namePlaceholder": "Your name",
+      "email": "Email *",
+      "emailPlaceholder": "Your email address",
+      "subject": "Subject *",
+      "subjectPlaceholder": "Subject",
+      "message": "Message *",
+      "messagePlaceholder": "Your message",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "description": "Easily adjust your opening hours with Open Close",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "home": "Home",
+    "products": "Product",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "terms": "Terms",
+    "cookies": "Cookie Policy"
+  },
+  "@home": {
+    "heroTitle": {
+      "description": "Main hero title on the homepage"
+    },
+    "heroSubtitle": {
+      "description": "Subtitle explaining the service"
+    }
+  },
+  "@navigation": {
+    "home": {
+      "description": "Navigation link to the home section"
+    }
+  },
+  "settings": {
+    "global": {
+      "userAdminTab": "User Overview",
+      "statisticTab": "Statistics",
+      "settingsTab": "Settings",
+      "ordersTab": "Orders",
+      "iFrameTab": "iFrame",
+      "logoutBtn": "Logout",
+      "save": "Save",
+      "back": "Back",
+      "discard": "Discard",
+      "delete": "Delete",
+      "open": "Open",
+      "closed": "Closed",
+      "date": "Date",
+      "language": "Language"
+    },
+    "orders": {
+      "iFrame1Year": "Order: iFrame - 1 year",
+      "begin": "Begin:",
+      "expiry": "Expiry:"
+    },
+    "information": {
+      "company": "Company",
+      "name": "Name",
+      "surname": "Surname",
+      "street": "Street",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "country": "Country",
+      "phoneNumber": "Phone Number",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "saveButton": "Save",
+      "savedText": "Saved!",
+      "saveFailedText": "Couldn't save!",
+      "renewButton": "Renew",
+      "renewedText": "Renewed!",
+      "renewFailedText": "Couldn't renew!"
+    },
+    "statistics": {
+      "title": "Statistics",
+      "customerAmount": "Amount of customers:",
+      "customerRenewAmount": "Amount of customers that renewed:",
+      "customerNonRenewAmount": "Amount of customers that did not renew:"
+    },
+    "iframe": {
+      "displaySettings": {
+        "title": "Display Settings",
+        "font": {
+          "label": "Font",
+          "size": "Size",
+          "weight": "Weight",
+          "style": "Style",
+          "styleNormal": "Normal",
+          "styleItalic": "Italic",
+          "styleOblique": "Oblique"
+        },
+        "colors": {
+          "label": "Colors",
+          "fontColor": "Font",
+          "primaryColor": "Primary",
+          "secondaryColor": "Secondary",
+          "backgroundColor": "Background",
+          "open": "open",
+          "closed": "closed",
+          "soon": "soon"
+        },
+        "border": {
+          "label": "Border",
+          "size": "Width",
+          "weight": "Weight",
+          "style": "Style",
+          "styleSolid": "Normal",
+          "styleDashed": "Dashed",
+          "styleDotted": "Dotted"
+        },
+        "shadow": {
+          "offsetX": "Offset X",
+          "offsetY": "Offset Y",
+          "blur": "Blur",
+          "color": "Color"
+        }
+      },
+      "specialDays": {
+        "title": "Special Days",
+        "empty": "No special times entered",
+        "addSpecialDay": "Add Special Day",
+        "deleteSpecialDay": "Delete Special Day",
+        "typeClosed": "Closed",
+        "typeOpen": "Open",
+        "allDayClosed": "All day closed",
+        "open": "Open",
+        "close": "Closed",
+        "Date": "Date",
+        "dayFormat": "DD",
+        "monthFormat": "MM",
+        "yearFormat": "YYYY",
+        "namePlaceholder": "Name of special day (e.g. Christmas)",
+        "descriptionPlaceholder": "Description"
+      },
+      "weekplan": {
+        "title": "Weekly Schedule",
+        "timeWindow": "Add Schedule",
+        "monday": "Monday",
+        "mondayShort": "Mon",
+        "tuesday": "Tuesday",
+        "tuesdayShort": "Tue",
+        "wednesday": "Wednesday",
+        "wednesdayShort": "Wed",
+        "thursday": "Thursday",
+        "thursdayShort": "Thu",
+        "friday": "Friday",
+        "fridayShort": "Fri",
+        "saturday": "Saturday",
+        "saturdayShort": "Sat",
+        "sunday": "Sunday",
+        "sundayShort": "Sun"
+      },
+      "close": {
+        "title": "Close",
+        "closeName": "Unscheduled Closure",
+        "closeDescription": "Description",
+        "closed": "Closed",
+        "untilDate": "Until"
+      }
+    }
+  },
+  "login": {
+    "loginTitle": "Login",
+    "registerTitle": "Register",
+    "loginIncorrect": "Email or password incorrect!",
+    "registerIncorrect": "Not all fields filled, passwords don't match or Email is already in use!",
+    "email": "Email",
+    "password": "Password",
+    "passwordConfirm": "Confirm Password",
+    "company": "Company",
+    "name": "Name",
+    "surname": "Surname",
+    "street": "Street",
+    "postalCode": "Postal Code",
+    "city": "City",
+    "country": "Country",
+    "phoneNumber": "Phone Number",
+    "latitude": "Latitude",
+    "longitude": "Longitude"
+  },
+  "iframe": {
+    "title": "Opening Hours",
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
+      "soon": "Closing soon"
+    },
+    "sections": {
+      "today": "Today",
+      "weekplan": "Weekly Schedule",
+      "specialDays": "Special Days"
+    },
+    "weekdays": {
+      "mo": "Mon",
+      "tu": "Tue",
+      "we": "Wed",
+      "th": "Thu",
+      "fr": "Fri",
+      "sa": "Sat",
+      "su": "Sun"
+    }
+  }
+}

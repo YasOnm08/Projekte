@@ -1,0 +1,14 @@
+/* Scrollbar styling */
+.scrollbar {
+  overflow-y: scroll;
+}
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--input-border-color); /* Use variable for thumb color */
+  border-radius: 4px;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background-color: var(--history-background-color); /* Use variable for track color */
+}

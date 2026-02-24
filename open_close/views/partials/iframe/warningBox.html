@@ -1,0 +1,9 @@
+{{#if showWarning}}
+<div class="warning-box d-flex align-items-start gap-3 mb-3 d-none d-sm-flex" role="alert">
+  <i class="bi bi-exclamation-triangle-fill fs-5 mt-1"></i>
+  <div class="warning-content flex-grow-1">
+    <strong class="d-block mb-1">{{warningTitle}}</strong>
+    <p class="mb-0">{{warningMessage}}</p>
+  </div>
+</div>
+{{/if}}

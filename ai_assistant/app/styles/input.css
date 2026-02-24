@@ -1,0 +1,73 @@
+.input{
+    border-radius: 8px;
+    background-color: var(--input-background-color);
+    padding: 1em 0 1em 0.5em;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10dvh;
+    position: absolute;
+    left: 0.25vw;
+    bottom: 3dvh;
+    right: 0.25vw;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.5);
+    z-index: 600;
+}
+.input input{
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 2px solid var(--input-button-color);
+    outline: none;
+    margin-right: 10px;
+    background-color: var(--input-background-color); /* Use variable for background */
+    color: var(--text-color); /* Use variable for text color */
+    transition: border-color 0.3s ease-in-out;
+    height: 7vh;
+}
+.textInputField::placeholder{
+    color: var(--text-color); /* Change to desired placeholder color */
+    opacity: 1;  /* Ensures full opacity (optional) */
+}
+.input input:focus{
+    border-color: var(--input-button-hover-color);
+}
+.input button{
+    padding: 5px;
+    margin: 5px 5px 5px 0;
+    background-color: var(--input-button-color);
+    color: var(--user-message-text-color); /* Use variable for button text color */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5em;
+    cursor: pointer;
+    height: 8dvh;
+    width: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.input button img{
+    height: 20px;
+}
+.input button:hover{
+    background-color: var(--input-button-hover-color);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+.microphone-button.red{
+    background-color: var(--close-button-color);
+}
+.microphone-button.green{
+    background-color: var(--button-background-color);
+}
+.microphone-button.red:hover{
+    background-color: var(--close-button-hover-color);
+}
+.microphone-button.green:hover{
+    background-color: var(--input-button-hover-color);
+}

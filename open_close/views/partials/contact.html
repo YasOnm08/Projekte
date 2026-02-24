@@ -1,0 +1,92 @@
+<!-- Contact Section -->
+<section id="contact" class="section-contact py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title">{{lang.contact.title}}</h2>
+        <p class="section-subtitle">{{lang.contact.subtitle}}</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <!-- Kontaktinformation -->
+              <div class="col-lg-5">
+                <div class="h-100 p-4 bg-white">
+                  <div class="contact-intro mb-4">
+                    <h4 class="fw-bold text-dark mb-3">{{lang.contact.introTitle}}</h4>
+                    <p class="text-muted">{{lang.contact.introText}}</p>
+                  </div>
+                  <div class="contact-details">
+                    <div class="contact-item d-flex align-items-center mb-4">
+                      <div class="contact-icon bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px">
+                        <i class="bi bi-envelope text-white"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-1 fw-semibold">{{lang.contact.email}}</h6>
+                        <p class="text-muted mb-0">info@openclose.com</p>
+                      </div>
+                    </div>
+                    <div class="contact-item d-flex align-items-center mb-4">
+                      <div class="contact-icon bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px">
+                        <i class="bi bi-telephone text-white"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-1 fw-semibold">{{lang.contact.phone}}</h6>
+                        <p class="text-muted mb-0">+49 123 456 789</p>
+                      </div>
+                    </div>
+                    <div class="contact-item d-flex align-items-center">
+                      <div class="contact-icon bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px">
+                        <i class="bi bi-clock text-white"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-1 fw-semibold">{{lang.contact.hours}}</h6>
+                        <p class="text-muted mb-0">{{lang.contact.hoursValue}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kontaktformular -->
+              <div class="col-lg-7">
+                <div class="h-100 p-4 bg-white">
+                  <form class="contact-form">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="name" class="form-label fw-semibold mb-2">{{lang.contact.form.name}}</label>
+                          <input type="text" class="form-control" id="name" placeholder="{{lang.contact.form.namePlaceholder}}" required />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="email" class="form-label fw-semibold mb-2">{{lang.contact.form.email}}</label>
+                          <input type="email" class="form-control" id="email" placeholder="{{lang.contact.form.emailPlaceholder}}" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="subject" class="form-label fw-semibold mb-2">{{lang.contact.form.subject}}</label>
+                      <input type="text" class="form-control" id="subject" placeholder="{{lang.contact.form.subjectPlaceholder}}" required />
+                    </div>
+                    <div class="form-group mb-4">
+                      <label for="message" class="form-label fw-semibold mb-2">{{lang.contact.form.message}}</label>
+                      <textarea class="form-control" id="message" rows="4" placeholder="{{lang.contact.form.messagePlaceholder}}" required></textarea>
+                    </div>
+                    <div class="text-start">
+                      <button type="submit" class="btn btn-primary px-4 py-2 fw-semibold"><i class="bi bi-send me-2"></i>{{lang.contact.form.send}}</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

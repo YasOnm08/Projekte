@@ -1,0 +1,73 @@
+.documentation-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Change to flex-start to align content at the top */
+  align-items: center;
+  padding: 2rem; /* Ensure sufficient padding */
+  margin: 2rem;
+  background-color: var(--doc-background-color);
+}
+
+.docDiv {
+  margin: 1em auto;
+  padding: 2em 1.5em; /* Adjusted padding for a modern look */
+}
+
+#documentation {
+  max-width: 800px;
+  height: 70vh;
+  overflow: auto;
+  width: 90%;
+  background-color: var(--doc-background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
+  margin: 4rem auto;
+  border: 1px solid var(--faq-item-border-color);
+  padding: 2rem; /* Added padding to give space around the content */
+}
+
+.title,
+.subtitle,
+.paragraph,
+.link {
+  color: var(--text-color);
+}
+
+.title {
+  font-size: calc(var(--font-size) * 2);
+  text-align: center;
+  margin-bottom: 1.5rem; /* Space below title */
+}
+
+.subtitle {
+  font-size: calc(var(--font-size) * 1.5);
+  margin-top: 2rem; /* Increased space for clarity */
+}
+
+.paragraph {
+  font-size: 1.1em;
+  line-height: 1.7; /* Increased line height for readability */
+  margin-bottom: 1.5rem; /* Increased space for readability */
+}
+
+.link {
+  display: block;
+  padding: 12px 18px; /* Slightly increased padding for buttons */
+  margin-top: 12px; /* Increased space above links */
+  background-color: var(--input-button-color);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  color: #fff; /* Ensure text color is readable */
+  font-weight: bold; /* Make links more prominent */
+}
+
+.link:hover {
+  background-color: var(--input-button-hover-color);
+  transform: translateY(-2px);
+}
+
+.link:active {
+  transform: translateY(0);
+}

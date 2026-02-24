@@ -1,0 +1,161 @@
+/* Output Section */
+.output {
+    scroll-behavior: smooth;
+    grid-column: 2;
+    grid-row: 1 / 4;
+    background-color: var(--output-background-color);
+    margin: 1em;
+    margin-bottom: 0;
+    padding-bottom: 13dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 1em;
+    overflow-y: auto;
+    width: calc(100% - 2em); /* Corrected calculation for width */
+    height: 85dvh;
+    position: relative;
+}
+#conversation {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    overflow-y: auto;
+    height: 75dvh;
+    background-color: var(--output-background-color);
+    border-radius: 10px;
+    scroll-behavior: smooth;
+}
+/* Message Bubbles */
+.user-message, .ai-message {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    max-width: 75%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.user-message {
+    background-color: var(--user-message-background-color);
+    align-self: flex-end;
+    color: var(--user-message-text-color);
+}
+.ai-message {
+    background-color: var(--ai-message-background-color);
+    align-self: flex-start;
+    color: var(--ai-message-text-color);
+}
+.ai-message a {
+    color: var(--text-color);
+}
+.ai-message table {
+    display: block; /* Treat the table as a block element */
+    position: relative;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap; /* Prevent table content from wrapping */
+    border: 1px solid var(--ai-message-text-color);
+    border-collapse: collapse;
+    background-color: var(--conversation-background-color);
+    max-width: 100%; /* Ensure the table doesn't exceed the container width */
+    padding: 10px; /* Optional: Add padding similar to pre/code */
+    border-radius: 4px; /* Optional: Add border radius similar to pre/code */
+    margin-top: 5px;
+}
+.ai-message th {
+    background-color: var(--user-message-background-color);
+    align-items: center;
+    padding: 5px;
+}
+.ai-message td {
+    align-items: center;
+    padding: 5px;
+}
+.ai-message img {
+    max-width: 80%;
+}
+.ai-message a:hover {
+    filter: brightness(70%);
+}
+.ai-message li {
+    margin-left: 1em;
+}
+.ai-message code, .ai-message pre {
+    overflow-x: auto;
+    white-space: pre;
+    display: block;
+    max-width: 100%;
+    padding: 10px;
+    background-color: var(--code-background-color);
+    border-radius: 4px;
+}
+/* Button Container */
+.button-container {
+    display: flex;
+}
+.button-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    height: 40px;
+    width: 40px;
+}
+.button-container button:hover {
+    background-color: var(--button-hover-background-color);
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 900;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: var(--user-message-background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: calc(var(--font-size) * 0.8);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--user-message-background-color) transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+#copiedText {
+    margin-top: 1em;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+}
+#scrollToBottom {
+    scroll-behavior: smooth;
+    visibility: hidden;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    border-radius: 100%;
+    bottom: 16dvh;
+    left: 50%;
+    translate: -25px;
+}

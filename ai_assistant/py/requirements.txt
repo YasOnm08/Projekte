@@ -1,0 +1,14 @@
+flask
+flask-cors
+ollama
+mistralai
+openai
+anthropic
+pyOpenSSL
+google-generativeai
+python-weather
+pycouchdb
+pyttsx3
+faster-whisper
+pydub
+ffmpeg

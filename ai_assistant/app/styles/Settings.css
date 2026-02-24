@@ -1,0 +1,221 @@
+/* Overlay for popup - full screen and centered */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.settings-main h2 {
+    margin-bottom: 1em;
+}
+.settings-main p {
+    padding-bottom: 7px;
+}
+/* Main container for the settings */
+.settings-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* 1fr for sidebar, 3fr for main content */
+    grid-auto-flow: column;
+    overflow-x: hidden;
+    height: 100%;
+    /* Ensure it takes full height */
+}
+/* Settings content */
+.settings-content {
+    background: var(--history-background-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    height: 90%;
+    max-height: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    /* Prevents overflow of the content */
+    position: relative;
+    /* Needed for absolute positioning of close button */
+    display: flex;
+    flex-direction: column;
+    /* Flexbox for vertical stacking */
+}
+/* Sidebar styles */
+.sidebar {
+    background: var(--settings-background-color);
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    /* Rounded corners on the left side */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    /* Scroll if content exceeds height */
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    /* Places sidebar in the first grid column */
+    height: 100%;
+    /* Ensures sidebar takes full height */
+}
+/* Sidebar item styles */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* Make the ul a column */
+    flex-grow: 1;
+    /* Allows the list to take available space */
+}
+.sidebar li {
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.sidebar li:hover {
+    background: var(--input-button-hover-color);
+    /* Highlight on hover */
+}
+.sidebar li.active {
+    background: var(--button-hover-background-color);
+    /* Active section highlight */
+}
+/* Main settings area */
+.settings-main {
+    grid-column: 2;
+    /* Places main settings in the second grid column */
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    /* Rounded corners on the right side */
+    overflow-y: auto;
+    /* Scroll if content exceeds height */
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+}
+/* Close button positioning */
+.close-popup {
+    background: var(--close-button-color);
+    /* Use variable for close button color */
+    color: white;
+    /* Use white for text color */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    /* Position the button absolutely */
+    top: 15px;
+    /* Distance from the top */
+    right: 40px;
+    /* Distance from the right */
+    transition: background 0.3s;
+}
+/* Close button positioning */
+.apply {
+    background: var(--apply-button-color);
+    /* Use variable for close button color */
+    color: white;
+    /* Use white for text color */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    /* Position the button absolutely */
+    top: 50px;
+    /* Distance from the top */
+    right: 40px;
+    /* Distance from the right */
+    transition: background 0.3s;
+}
+.close-popup:hover {
+    background: darkred;
+    /* Optional hover effect */
+}
+/* Additional styles for inputs and options */
+.settings-option {
+    margin-bottom: 20px;
+    /* Adds space between each setting option */
+    padding-bottom: 10px;
+    /* Adds internal spacing */
+    border-bottom: 1px solid var(--input-border-color);
+    /* Optional, creates a separator between options */
+}
+.settings-option:last-child {
+    margin-bottom: 0;
+    /* Removes bottom margin from last option */
+    border-bottom: none;
+    /* Removes separator from last option */
+}
+.settings-option input[type="text"],
+.settings-option input[type="email"],
+.settings-option input[type="password"],
+.settings-option input[type="color"],
+.settings-option input[type="range"],
+.settings-option select {
+    border-color: var(--input-border-color);
+    color: var(--text-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    /* Adds spacing between inputs */
+}
+/* Optional additional spacing for labels */
+.settings-option label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+.export-button {
+    background-color: var(--button-hover-background-color);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.import-file {
+    background-color: var(--button-hover-background-color);
+    padding: 10px;
+    margin: 10px;
+}
+.slider {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.slider-option {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.slider-option.active {
+    background-color: #007bff;
+    /* Change to your active color */
+    color: white;
+    border-color: #007bff;
+}
+input[type="radio"] {
+    display: none;
+    /* Hide the default radio buttons */
+}
+.slider-option.disabled {
+    opacity: 0.5;
+    /* Make the option appear greyed out */
+    pointer-events: none;
+    /* Prevent clicks */
+}
+.dropdown{
+    display: none;
+}

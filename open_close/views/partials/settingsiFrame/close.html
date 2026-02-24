@@ -1,0 +1,149 @@
+<div class="d-flex flex-column h-100 px-3 px-md-5 py-3 py-md-4" style="min-height: 0;">
+    <h4 class="text-center text-secondary mb-4" style="font-weight: 300;">{{lang.settings.iframe.close.closeName}}</h4>
+
+    <div class="d-flex justify-content-center mb-4">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="close-is-closed" {{#if iFrame.emergencyClosed.closed}}checked{{/if}}>
+            <label class="form-check-label text-secondary" for="close-is-closed">{{lang.settings.iframe.close.closed}}</label>
+        </div>
+    </div>
+
+    <div class="flex-grow-1 overflow-auto" style="min-height: 0;">
+        <div class="row">
+            <!-- Left Column: Description -->
+            <div class="col-12 col-md-7 mb-4 mb-md-0">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="text-secondary display-6" style="font-size: 1.5rem;">{{lang.settings.iframe.close.closeDescription}}:</span>
+                    <select id="close-lang-select" class="form-select form-select-sm border-0 bg-light text-secondary shadow-none" style="width: 100px;">
+                        <option value="de">DE</option>
+                        <option value="en">EN</option>
+                        <option value="fr">FR</option>
+                        <option value="it">IT</option>
+                        <option value="es">ES</option>
+                    </select>
+                </div>
+                <input type="text" id="close-desc-text" class="form-control border-0 bg-light text-secondary shadow-none p-3" placeholder="{{lang.settings.iframe.close.closeDescription}}" style="font-size: 1.1rem;">
+            </div>
+
+            <!-- Right Column: Until Time -->
+            <div class="col-12 col-md-5 d-flex justify-content-start justify-content-md-end align-items-start gap-3">
+                <span class="text-secondary display-6" style="font-size: 1.5rem;">{{lang.settings.iframe.close.untilDate}}:</span>
+                <input type="time" id="close-until-time" class="form-control border-0 shadow-none bg-transparent p-0 text-secondary" style="width: 120px; font-size: 1.5rem;" value="{{iFrame.emergencyClosed.until}}">
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-auto d-flex justify-content-end gap-3 pt-3">
+        <button id="btn-close-save" class="btn btn-outline-secondary px-4 w-100 w-md-auto">{{lang.settings.global.save}}</button>
+    </div>
+
+    <!-- Hidden Data Store for Descriptions -->
+    <div id="close-descriptions-data" class="d-none">
+        {{#if iFrame.emergencyClosed.description}}
+            {{#each iFrame.emergencyClosed.description}}
+                <div data-lang="{{@key}}" data-text="{{this}}"></div>
+            {{/each}}
+        {{/if}}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const userId = "{{ iFrame.userId }}";
+        const langSelect = document.getElementById('close-lang-select');
+        const descText = document.getElementById('close-desc-text');
+        const untilInput = document.getElementById('close-until-time');
+        const saveBtn = document.getElementById('btn-close-save');
+        const isClosedCheckbox = document.getElementById('close-is-closed');
+
+        // Load initial descriptions from DOM
+        let closeDescriptions = {};
+        const dataContainer = document.getElementById('close-descriptions-data');
+        if (dataContainer) {
+            dataContainer.querySelectorAll('div').forEach(div => {
+                const lang = div.getAttribute('data-lang');
+                const text = div.getAttribute('data-text');
+                if (lang) closeDescriptions[lang] = text;
+            });
+        }
+
+        // Toggle Inputs based on Checkbox
+        const toggleInputs = () => {
+            const isClosed = isClosedCheckbox.checked;
+            descText.disabled = !isClosed;
+            untilInput.disabled = !isClosed;
+            langSelect.disabled = !isClosed;
+            
+            if (!isClosed) {
+                descText.style.opacity = '0.5';
+                untilInput.style.opacity = '0.5';
+            } else {
+                descText.style.opacity = '1';
+                untilInput.style.opacity = '1';
+            }
+        };
+
+        if (isClosedCheckbox) {
+            isClosedCheckbox.addEventListener('change', toggleInputs);
+            toggleInputs(); // Initial state
+        }
+
+        // Initialize inputs
+        if (langSelect && descText) {
+            langSelect.value = 'de';
+            descText.value = closeDescriptions['de'] || '';
+
+            langSelect.addEventListener('change', () => {
+                const lang = langSelect.value;
+                descText.value = closeDescriptions[lang] || '';
+            });
+
+            descText.addEventListener('input', () => {
+                const lang = langSelect.value;
+                closeDescriptions[lang] = descText.value;
+            });
+        }
+
+        const saveEmergencyClose = async () => {
+            const closed = isClosedCheckbox.checked;
+            const until = untilInput.value;
+            
+            // Filter empty descriptions
+            const description = {};
+            for (const [key, value] of Object.entries(closeDescriptions)) {
+                if (value && value.trim() !== '') {
+                    description[key] = value;
+                }
+            }
+
+            const payload = {
+                emergencyClosed: {
+                    closed: closed,
+                    until: closed ? until : null,
+                    description: closed ? description : {}
+                }
+            };
+
+            try {
+                const response = await fetch(`/api/v1/users/${userId}/config`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Fehler beim Speichern');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Netzwerkfehler');
+            }
+        };
+
+        if (saveBtn) {
+            saveBtn.addEventListener('click', saveEmergencyClose);
+        }
+    });
+</script>

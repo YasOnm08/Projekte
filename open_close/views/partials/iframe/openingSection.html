@@ -1,0 +1,25 @@
+<div class="opening-section mb-4 mb-md-0 size-{{requestedSize}}">
+  <div class="today-highlight p-3 mb-4 rounded-3 border">
+    <h2 class="section-title h6 text-uppercase text-muted mb-2"><i class="bi bi-calendar-check me-2"></i>{{lang.iframe.sections.today}}</h2>
+    <p class="today-hours h4 mb-0 fw-bold">{{todayHours}}</p>
+  </div>
+
+  {{#if weekSchedule}}
+  <h2 class="section-title h6 text-uppercase text-muted mb-3"><i class="bi bi-view-list me-2"></i>{{lang.iframe.sections.weekplan}}</h2>
+
+  <div class="schedule-list border">
+    {{#each weekSchedule}}
+    <div class="schedule-row {{#if this.isClosed}}bg-light opacity-75{{/if}}">
+      <span class="day-name fw-bold">{{this.day}}</span>
+      <div class="time-slots-container text-end">
+        {{#if this.isClosed}}
+        <span class="text-muted small">{{../lang.iframe.status.closed}}</span>
+        {{else}} {{#each this.timeSlots}}
+        <span class="time-slot-item badge bg-light text-dark border">{{this}}</span>
+        {{/each}} {{/if}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

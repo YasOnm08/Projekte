@@ -1,0 +1,54 @@
+<form id="special-day-form" class="d-none h-100 flex-grow-1 flex-column bg-white overflow-hidden" style="min-height: 0;">
+    <div class="text-center pt-4">
+        <input type="text" id="detail-name" class="form-control border-0 text-center text-secondary mb-4 display-6 shadow-none bg-transparent" placeholder="Name" style="font-size: 2.5rem; font-weight: 300;" required>
+        
+        <div class="d-flex justify-content-center gap-4 mb-3 text-secondary align-items-center">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="detail-is-closed">
+                <label class="form-check-label" for="detail-is-closed">{{lang.settings.iframe.specialDays.allDayClosed}}</label>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-4 mb-2 text-secondary align-items-center">
+            <div class="text-end" style="width: 100px;">{{lang.settings.global.open}}</div>
+            <input type="time" id="detail-open" class="form-control border-0 shadow-none bg-transparent p-0 text-secondary" style="width: 110px;">
+        </div>
+        <div class="d-flex justify-content-center gap-4 mb-4 text-secondary align-items-center">
+            <div class="text-end" style="width: 100px;">{{lang.settings.global.closed}}</div>
+            <input type="time" id="detail-close" class="form-control border-0 shadow-none bg-transparent p-0 text-secondary" style="width: 110px;">
+        </div>
+        
+        <div class="d-flex justify-content-center gap-4 mb-5 text-secondary align-items-center">
+            <div class="text-end" style="width: 100px;">{{lang.settings.iframe.specialDays.date}}</div>
+            <input type="date" id="detail-date" class="form-control border-0 shadow-none bg-transparent p-0 text-secondary" style="width: 130px;" required>
+        </div>
+    </div>
+
+    <div class="flex-grow-1 px-3 px-md-5 overflow-auto" style="min-height: 0;">
+        <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
+            <div class="text-secondary small">{{lang.settings.global.language}}:</div>
+            <select id="detail-lang-select" class="form-select form-select-sm border-0 bg-light text-secondary shadow-none" style="width: 100px;">
+                <option value="de">DE</option>
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+                <option value="it">IT</option>
+                <option value="es">ES</option>
+            </select>
+        </div>
+        
+        <input type="text" id="detail-desc-text" class="form-control border-0 bg-light text-secondary shadow-none" placeholder="{{lang.settings.iframe.specialDays.descriptionPlaceholder}}" style="font-size: 1.1rem;">
+    </div>
+
+    <!-- Edit Mode Buttons -->
+    <div id="edit-buttons" class="mt-auto pt-3 d-flex flex-column flex-md-row justify-content-end gap-3 px-3 px-md-5 pb-3">
+        <button type="button" class="btn btn-outline-secondary px-4 w-100 w-md-auto" id="btn-back-special">{{lang.settings.global.back}}</button>
+        <button type="button" class="btn btn-outline-secondary px-4 w-100 w-md-auto" id="btn-delete-special">{{lang.settings.global.delete}}</button>
+        <button type="submit" class="btn btn-outline-secondary px-4 w-100 w-md-auto" id="btn-save-special">{{lang.settings.global.save}}</button>
+    </div>
+
+    <!-- Create Mode Buttons -->
+    <div id="create-buttons" class="mt-auto pt-3 d-none flex-column flex-md-row justify-content-end gap-3 px-3 px-md-5 pb-3">
+        <button type="button" class="btn btn-outline-secondary px-4 w-100 w-md-auto" id="btn-cancel-create">{{lang.settings.global.discard}}</button>
+        <button type="submit" class="btn btn-outline-secondary px-4 w-100 w-md-auto" id="btn-save-create">{{lang.settings.global.save}}</button>
+    </div>
+</form>

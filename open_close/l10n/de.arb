@@ -1,0 +1,233 @@
+{
+  "@@locale": "de",
+  "appTitle": "Open Close",
+  "home": {
+    "heroTitle": "OPEN CLOSE",
+    "heroSubtitle": "Ihr Partner für Öffnungszeiten-Verwaltung",
+    "buyNow": "JETZT KAUFEN!"
+  },
+  "navigation": {
+    "home": "Home",
+    "products": "Produkt",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "login": "Anmelden",
+    "language": "Sprache"
+  },
+  "products": {
+    "title": "Unser Produkt",
+    "subtitle": "Mit Open Close einfach Ihre Öffnungszeiten von unterwegs anpassen",
+    "packageName": "Unsere Weblösung",
+    "description": "Mit Open Close passen Sie Ihre Öffnungszeiten jederzeit und von überall aus einfach an. Sie können spezielle Daten eintragen sowie Sonder- und Schliesszeiten verwalten – unkompliziert und übersichtlich.",
+    "features": {
+      "feature1": "Öffnungszeiten in Sekunden anpassbar.",
+      "feature2": "Schnelle und klare Kundeninformation.",
+      "feature3": "Einfache Website-Integration.",
+      "feature4": "An Ihr Webdesign anpassbar.",
+      "feature5": "Mehrsprachig flexibel einstellbar."
+    },
+    "price": "CHF12/J",
+    "buyNow": "Jetzt Kaufen"
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "subtitle": "Hier finden Sie Antworten auf die am häufigsten gestellten Fragen",
+    "questions": {
+      "registration": "Wie kann ich mich registrieren?",
+      "paymentMethods": "Welche Zahlungsmethoden werden akzeptiert?",
+      "subscription": "Kann ich mein Abonnement kündigen?",
+      "moneyBack": "Gibt es eine Geld-zurück-Garantie?"
+    },
+    "answers": {
+      "registration": "Die Anmeldung funktioniert wie auf den meisten Webseiten: Klicken Sie auf „Anmelden“ oder „Login“, geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein und bestätigen Sie anschließend. Falls Sie noch kein Konto haben, können Sie sich über „Registrieren“ schnell neu anmelden.",
+      "paymentMethods": "Es stehen alle gängigen Online-Zahlungsmethoden zur Verfügung, sodass Sie bequem die für Sie passende auswählen können. Dazu gehören gängige Kredit- und Debitkarten sowie moderne digitale Bezahloptionen.",
+      "subscription": "Ja, Sie können Ihr Abo jederzeit kündigen. Die Kündigung erfolgt ganz einfach über Ihr Benutzerkonto, und nach dem Ende des bereits bezahlten Zeitraums werden keine weiteren Gebühren mehr berechnet.",
+      "moneyBack": "Ja, es gibt eine Geld-zurück-Garantie. Wenn Sie mit Ihrem Kauf nicht zufrieden sind, können Sie innerhalb der angegebenen Frist eine Rückerstattung beantragen, und Ihr Betrag wird unkompliziert zurückerstattet."
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Haben Sie Fragen? Wir helfen Ihnen gerne weiter",
+    "introTitle": "Wir freuen uns von Ihnen zu hören!",
+    "introText": "Kontaktieren Sie uns – unser Team steht Ihnen gerne zur Verfügung und antwortet schnellstmöglich.",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "hours": "Öffnungszeiten",
+    "hoursValue": "Mo-Fr: 9:00-18:00 Uhr",
+    "form": {
+      "name": "Name *",
+      "namePlaceholder": "Ihr Name",
+      "email": "E-Mail *",
+      "emailPlaceholder": "Ihre E-Mail-Adresse",
+      "subject": "Betreff *",
+      "subjectPlaceholder": "Betreff",
+      "message": "Nachricht *",
+      "messagePlaceholder": "Ihre Nachricht",
+      "send": "Nachricht senden"
+    }
+  },
+  "footer": {
+    "description": "Mit Open Close einfach Ihre Öffnungszeiten anpassen",
+    "navigation": "Navigation",
+    "legal": "Rechtliches",
+    "home": "Startseite",
+    "products": "Produkt",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "cookies": "Cookie-Richtlinie"
+  },
+  "@home": {
+    "heroTitle": {
+      "description": "The main hero title on the homepage"
+    },
+    "heroSubtitle": {
+      "description": "The subtitle explaining the service"
+    }
+  },
+  "@navigation": {
+    "home": {
+      "description": "Navigation link to home section"
+    }
+  },
+  "settings": {
+    "global": {
+      "settingsTab": "Einstellungen",
+      "iFrameTab": "iFrame",
+      "logoutBtn": "Abmelden",
+      "save": "Speichern",
+      "back": "Zurück",
+      "discard": "Abbrechen",
+      "delete": "Löschen",
+      "open": "Offen",
+      "closed": "Geschlossen",
+      "date": "Datum",
+      "language": "Sprache"
+    },
+    "iframe": {
+      "displaySettings": {
+        "title": "Anzeigeeinstellungen",
+        "font": {
+          "label": "Schrift",
+          "size": "Grösse",
+          "weight": "Stärke",
+          "style": "Stil",
+          "styleNormal": "Normal",
+          "styleItalic": "Kursiv",
+          "styleOblique": "Schräg"
+        },
+        "colors": {
+          "label": "Farben",
+          "fontColor": "Schrift",
+          "primaryColor": "Primär",
+          "secondaryColor": "Sekundär",
+          "backgroundColor": "Hintergrund",
+          "open": "offen",
+          "closed": "geschlossen",
+          "soon": "bald"
+        },
+        "border": {
+          "label": "Rahmen",
+          "size": "Breite",
+          "weight": "Stärke",
+          "style": "Stil",
+          "styleSolid": "Durchgezogen",
+          "styleDashed": "Gestrichelt",
+          "styleDotted": "Gepunktet"
+        },
+        "shadow": {
+          "offsetX": "Versatz X",
+          "offsetY": "Versatz Y",
+          "blur": "Unschärfe",
+          "color": "Farbe"
+        }
+      },
+      "specialDays": {
+        "title": "Spezialtage",
+        "empty": "Keine Spezialzeiten eingetragen",
+        "addSpecialDay": "Spezialtag hinzufügen",
+        "deleteSpecialDay": "Spezialtag löschen",
+        "typeClosed": "Geschlossen",
+        "typeOpen": "Geöffnet",
+        "allDayClosed": "Ganztägig geschlossen",
+        "open": "Geöffnet",
+        "close": "Geschlossen",
+        "Date": "Datum",
+        "dayFormat": "TT",
+        "monthFormat": "MM",
+        "yearFormat": "JJJJ",
+        "namePlaceholder": "Name des Spezialtags (z.B. Weihnachten)",
+        "descriptionPlaceholder": "Beschreibung"
+      },
+      "weekplan": {
+    "title": "Wochenplan",
+    "timeWindow": "Zeitplan hinzufügen",
+    "monday": "Montag",
+    "mondayShort": "Mo",
+    "tuesday": "Dienstag",
+    "tuesdayShort": "Di",
+    "wednesday": "Mittwoch",
+    "wednesdayShort": "Mi",
+    "thursday": "Donnerstag",
+    "thursdayShort": "Do",
+    "friday": "Freitag",
+    "fridayShort": "Fr",
+    "saturday": "Samstag",
+    "saturdayShort": "Sa",
+    "sunday": "Sonntag",
+    "sundayShort": "So"
+  }
+},
+      "close": {
+        "title": "Schliessen",
+        "closeName": "Ausserplanmässig Schliessen",
+        "closeDescription": "Beschreibung",
+        "closed": "Geschlossen",
+        "untilDate": "Bis"
+      }
+    }
+  ,
+  "login": {
+    "loginTitle": "Anmelden",
+    "registerTitle": "Registrieren",
+    "loginIncorrect": "E-Mail oder Passwort falsch!",
+    "registerIncorrect": "Nicht alle Felder ausgefüllt, Passwörter stimmen nicht überein oder E-Mail wird bereits verwendet!",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "passwordConfirm": "Passwort bestätigen",
+    "company": "Unternehmen",
+    "name": "Vorname",
+    "surname": "Nachname",
+    "street": "Straße",
+    "postalCode": "Postleitzahl",
+    "city": "Stadt",
+    "country": "Land",
+    "phoneNumber": "Telefonnummer",
+    "latitude": "Breitengrad",
+    "longitude": "Längengrad"
+  },
+  "iframe": {
+    "title": "Öffnungszeiten",
+    "status": {
+      "open": "Offen",
+      "closed": "Geschlossen",
+      "soon": "Schliesst bald"
+    },
+    "sections": {
+      "today": "Heute",
+      "weekplan": "Wochenplan",
+      "specialDays": "Spezialtage"
+    },
+    "weekdays": {
+      "mo": "Mo",
+      "tu": "Di",
+      "we": "Mi",
+      "th": "Do",
+      "fr": "Fr",
+      "sa": "Sa",
+      "su": "So"
+    }
+  }
+}

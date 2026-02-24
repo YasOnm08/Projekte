@@ -1,0 +1,19 @@
+/* Importing all the split CSS files */
+@import './variables.css';
+@import './reset.css';
+@import './global.css';
+@import './header.css';
+@import './container.css';
+@import './history.css';
+@import './models.css';
+@import './output.css';
+@import './user-ai-messages.css';
+@import './input.css';
+@import './faq.css';
+@import './scrollbar.css';
+@import './doc.css';
+@import './Login.css';
+@import './Settings.css';
+@import './fonts.css';
+@import './credit.css';
+@import './responsive.css';

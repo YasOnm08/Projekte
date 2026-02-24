@@ -1,0 +1,7 @@
+POST http://127.0.0.1:5500/api/v1/users/019adf52-e3d1-7432-9014-a8aaf6ce1d40/config HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inlhc2luQHlhc2luLmNvbSIsInVzZXJJZCI6IjAxOWFkZjUyLWUzZDEtNzQzMi05MDE0LWE4YWFmNmNlMWQ0MCIsImlzQWRtaW4iOmZhbHNlLCJleHBpcmVzIjoxNzY3Njk0ODI5NzA0LCJpYXQiOjE3Njc2OTIyMzd9.wpcFF7EvhzVvet69qdxgQXdWv7ZY22yvaKXUberNK6A
+
+{
+  "timezone": "Europe/Zurich"
+}

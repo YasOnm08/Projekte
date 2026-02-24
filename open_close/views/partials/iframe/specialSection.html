@@ -1,0 +1,39 @@
+{{#if specialDays}}
+<div class="special-section calendar-section size-{{requestedSize}}">
+  <div class="calendar-header text-center mb-3">
+    <h2 class="section-title h5 mb-0">
+      <i class="bi bi-calendar-event me-2 text-primary"></i>
+      {{currentMonthName}}
+    </h2>
+  </div>
+
+  <div class="calendar-grid-container shadow-sm border">
+    <div class="calendar-day-labels mb-2">
+      <span class="day-label text-muted small fw-bold">{{lang.iframe.weekdays.mo}}</span>
+      <span class="day-label text-muted small fw-bold">{{lang.iframe.weekdays.tu}}</span>
+      <span class="day-label text-muted small fw-bold">{{lang.iframe.weekdays.we}}</span>
+      <span class="day-label text-muted small fw-bold">{{lang.iframe.weekdays.th}}</span>
+      <span class="day-label text-muted small fw-bold">{{lang.iframe.weekdays.fr}}</span>
+      <span class="day-label text-muted small fw-bold">{{lang.iframe.weekdays.sa}}</span>
+      <span class="day-label text-muted small fw-bold">{{lang.iframe.weekdays.su}}</span>
+    </div>
+
+    <div class="calendar-grid">
+      {{#each specialDays.calendarDays}} {{#if empty}}
+      <div class="calendar-day empty bg-transparent"></div>
+      {{else}}
+      <div class="calendar-day border {{#if isToday}}day-today border-primary text-primary{{/if}} {{#if isSpecial}}day-special-event bg-primary-subtle{{/if}}">
+        <span class="day-number">{{dayNumber}}</span>
+        {{#if isSpecial}}
+        <div class="event-indicator bg-primary position-absolute bottom-0 start-50 translate-middle-x mb-1" style="width: 4px; height: 4px; border-radius: 50%"></div>
+        {{/if}}
+      </div>
+      {{/if}} {{/each}}
+    </div>
+  </div>
+
+  {{#if specialDays.specialDaysList}}
+  <div class="special-days-list mt-3 d-flex flex-column gap-2">{{#each specialDays.specialDaysList}} {{> iframe/eventCard name=this.name date=this.formattedDate hours=this.hours closed=this.closed lang=../lang}} {{/each}}</div>
+  {{/if}}
+</div>
+{{/if}}

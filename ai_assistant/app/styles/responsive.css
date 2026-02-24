@@ -1,0 +1,185 @@
+/* Responsive behavior - applies only on smaller screens */
+@media (max-width: 1200px) {
+  * {
+    margin: 0;
+    padding: 0;
+    border-radius: none;
+  }
+  /* Header styles */
+  header {
+    top: 0;
+    left: 0;
+    margin-top: 0px;
+    padding-top: 0;
+    width: 100%;
+  }
+  /* Container styles */
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 1dvh 0 0 0;
+  }
+  /* Left panel styles */
+  .left-panel {
+    display: hidden; /* Initially hidden */
+    min-width: 100%; /* Takes full width when visible */
+    margin: 0;
+  }
+  .left-panel.visible {
+    display: block;
+    height: min-content;
+  }
+  /* Conversation container styles */
+  .conversation-container {
+    min-width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .conversation-container.collapsed {
+    width: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    display: hidden;
+  }
+  .conversation-container.expanded {
+    min-width: 100%;
+    margin-left: 0;
+    border-radius: none;
+    height: 10vh;
+  }
+  /* Grid styles */
+  .grid {
+    grid-template-columns: 1fr; /* One item per line */
+  }
+  /* Model box styles */
+  .model-box {
+    width: 50vw;
+    height: 50vw;
+  }
+  /* Input styles */
+  .input {
+    grid-column: 1 / -1;
+    gap: 5px;
+    padding: 0.5em;
+    margin: 0 auto;
+    align-items: center;
+    bottom: 3dvh;
+    right: 2vw;
+    left: 2vw;
+    justify-content: flex-start;
+  }
+  .input input {
+    font-size: 1em; /* Adjust font size */
+    max-width: 70%;
+    margin-right: 0;
+    border-color: var(--input-border-color); /* Use variable for input border */
+    color: var(--text-color); /* Use variable for text color */
+  }
+  .input button {
+    height: 100%; /* Adjust button height */
+    width: 15%; /* Adjust button width */
+    font-size: 1.2em; /* Adjust button font size */
+    background-color: var(--input-button-color); /* Use variable for button color */
+    color: var(--user-message-text-color); /* Use variable for button text color */
+    margin: 0;
+  }
+  .header-logo {
+    position: relative;
+  }
+  .hamburger.open {
+    margin-top: 0.5vh;
+    padding-left: 1vw;
+  }
+  .nav-links {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 10vh; /* Adjust as needed */
+    left: 0;
+    background-color: var(--burger-menu-background-color);
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    height: fit-content;
+  }
+  .nav-links.active {
+    display: flex; /* Show when active */
+    height: fit-content;
+  }
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    height: 50px;
+    background-color: var(--input-button-color);
+    border: none;
+    font-size: 0.9em;
+    border-radius: 5px;
+  }
+  .nav-btn:hover {
+    background-color: var(--input-button-hover-color);
+  }
+  .hamburger {
+    display: flex; /* Always show hamburger button */
+  }
+  .header-login-button {
+    right: 5vh; /* Keep login button visible */
+  }
+  .show-hide-btn {
+    width: fit-content;
+    left: 20vw;
+  }
+  .header-logo {
+    background-image: url(../../public/img/logo-small.png);
+    width: 4em;
+  }
+  .sidebar {
+    width: 0%;
+    display: none;
+  }
+  .settings-main {
+    width: 80vw; /* Full width for main content */
+    margin: auto;
+    padding: auto;
+  }
+  .dropdown {
+    display: flex;
+    position: relative;
+    top: 10px;
+    display: block;
+  }
+  .slider-option {
+    width: fit-content;
+    margin: 10px 10px 0 0;
+  }
+}
+
+/* Responsive adjustments for the settings */
+@media (max-width: 768px) {
+  .settings-content {
+    flex-direction: column; /* Stack sidebar and main content on smaller screens */
+  }
+}
+
+/* Optional: Add media query for responsive adjustments */
+@media (max-width: 600px) {
+  .documentation-section {
+    padding: 1.5rem; /* Decrease padding for smaller screens */
+  }
+
+  .title {
+    font-size: 2em; /* Adjust title size */
+  }
+
+  .subtitle {
+    font-size: 1.5em; /* Adjust subtitle size */
+  }
+
+  .paragraph {
+    font-size: 1em; /* Adjust paragraph size */
+  }
+}

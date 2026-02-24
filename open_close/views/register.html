@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="/css/login.css" />
+<div class="m-5 card card-body shadow">
+  <h1 class="mb-4">{{lang.login.registerTitle}}</h1>
+  <form>
+    <div class="alert alert-danger d-none" role="alert">{{lang.login.registerIncorrect}}</div>
+    <div class="form-group">
+      <label for="email" class="fs-3 m-1">{{lang.login.email}}</label>
+      <input type="email" name="email" class="emailInput form-control m-1" value="{{email}}" required />
+    </div>
+    <div class="form-group">
+      <label for="password" class="fs-3 m-1">{{lang.login.password}}</label>
+      <input type="password" name="password" class="passwordInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="passwordConfirm" class="fs-3 m-1">{{lang.login.passwordConfirm}}</label>
+      <input type="password" name="passwordConfirm" class="passwordInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="company" class="fs-3 m-1">{{lang.login.company}}</label>
+      <input type="text" name="company" class="companyInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="name" class="fs-3 m-1">{{lang.login.name}}</label>
+      <input type="text" name="name" class="nameInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="surname" class="fs-3 m-1">{{lang.login.surname}}</label>
+      <input type="text" name="surname" class="surnameInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="street" class="fs-3 m-1">{{lang.login.street}}</label>
+      <input type="text" name="street" class="streetInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="postalCode" class="fs-3 m-1">{{lang.login.postalCode}}</label>
+      <input type="text" name="postalCode" class="postalCodeInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="city" class="fs-3 m-1">{{lang.login.city}}</label>
+      <input type="text" name="city" class="cityInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="country" class="fs-3 m-1">{{lang.login.country}}</label>
+      <input type="text" name="country" class="countryInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber" class="fs-3 m-1">{{lang.login.phoneNumber}}</label>
+      <input type="tel" name="phoneNumber" class="phoneNumberInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="latitude" class="fs-3 m-1">{{lang.login.latitude}}</label>
+      <input type="latitude" name="latitude" class="latitudeInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="longitude" class="fs-3 m-1">{{lang.login.longitude}}</label>
+      <input type="longitude" name="longitude" class="longitudeInput form-control m-1" required />
+    </div>
+    <button type="submit" class="loginButton btn btn-primary position-relative start-50 translate-middle mt-5 fs-4">{{lang.login.registerTitle}}</button>
+  </form>
+</div>
+<script>
+  document.querySelector(".loginButton").addEventListener("click", async (event) => {
+    event.preventDefault();
+    try {
+      await fetch(window.location.protocol + "//" + window.location.host + "/api/v1/users", {
+        method: "POST",
+        body: JSON.stringify({
+          email: document.querySelector(".emailInput").value,
+          password: document.querySelector(".passwordInput").value,
+          company: document.querySelector(".companyInput").value,
+          name: document.querySelector(".nameInput").value,
+          surname: document.querySelector(".surnameInput").value,
+          street: document.querySelector(".streetInput").value,
+          postalCode: document.querySelector(".postalCodeInput").value,
+          city: document.querySelector(".cityInput").value,
+          country: document.querySelector(".countryInput").value,
+          phoneNumber: document.querySelector(".phoneNumberInput").value,
+          coordinates: {
+            latitude: document.querySelector(".latitudeInput").value,
+            longitude: document.querySelector(".longitudeInput").value,
+          },
+          sessionId: new URLSearchParams(window.location.search).get("sessionId"),
+        }),
+        headers: new Headers({ "content-type": "application/json" }),
+      });
+
+      const data = JSON.stringify({
+        email: document.querySelector(".emailInput").value,
+        password: document.querySelector(".passwordInput").value,
+      });
+
+      const bearer = await fetch(window.location.protocol + "//" + window.location.host + "/api/v1/users/login", {
+        method: "POST",
+        body: data,
+        headers: new Headers({ "content-type": "application/json" }),
+      });
+
+      const token = (await bearer.json()).token;
+
+      if (token) {
+        document.cookie = "token=" + token + ";path=/";
+        window.location.href = "/settings";
+      } else {
+        throw new Error("Invalid Credentials");
+      }
+    } catch (error) {
+      document.querySelector(".alert").classList.remove("d-none");
+    }
+  });
+</script>

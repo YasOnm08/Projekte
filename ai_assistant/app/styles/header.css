@@ -1,0 +1,117 @@
+header{
+    position: relative;
+    padding: 0 20px;
+    width: 100%;
+    height: 10dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    z-index: 999;
+}
+/* Hamburger button styles */
+.hamburger{
+    position: absolute;
+    left: 5vw;
+    display: flex; /* Always show hamburger button */
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span{
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+    transition: 0.3s;
+}
+.hamburger.open span:nth-child(1){
+    transform: rotate(45deg) translate(5px, 10px);
+}
+.hamburger.open span:nth-child(2){
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3){
+    transform: rotate(-45deg) translate(5px, -10px);
+}
+/* Navigation links (hidden in header, shown in dropdown) */
+.nav-links{
+    display: none; /* Default hidden */
+    position: absolute;
+    top: 10vh; /* Adjust as needed */
+    left: 0;
+    background-color: var(--burger-menu-background-color);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px auto;
+    margin: auto;
+}
+.nav-links.active{
+    display: flex; /* Show when active */
+    height: fit-content;
+}
+.nav-btn{
+    background-color: var(--input-button-color);
+    border: none;
+    font-size: 0.9em;
+    height: 50px; /* Consistent height */
+    border-radius: 5px;
+    padding: 10px auto;
+    font-family: var(--font-family);
+    width: 100%; /* Full width */
+    text-align: center; /* Center text */
+    margin: 4px auto;
+}
+.nav-btn:hover{
+    background-color: var(--input-button-hover-color);
+}
+/* Logo styles */
+.header-logo{
+    width: 250px;
+    height: 5vh;
+    background-image: url(../../public/img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+}
+/* Login button styles */
+.login-button-container{
+    position: absolute;
+    top: 0.1vh;
+    right: 1vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.header-login-button{
+    height: 100%;
+    width: max-content;
+    font-size: var(--font-size);
+    padding: 0.5vw 1vw;
+    background-color: var(--input-button-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-login-button:hover{
+    background-color: var(--input-button-hover-color);
+}
+.show-hide-btn{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    align-self: left;
+    position: absolute;
+    left: 10vw;
+    cursor: pointer;
+    padding: 10px;
+}

@@ -1,0 +1,264 @@
+{
+  "@@locale": "it",
+  "appTitle": "Open Close",
+  "home": {
+    "heroTitle": "OPEN CLOSE",
+    "heroSubtitle": "Il vostro partner per la gestione degli orari di apertura",
+    "buyNow": "ACQUISTA ORA!"
+  },
+  "navigation": {
+    "home": "Home",
+    "products": "Prodotto",
+    "faq": "FAQ",
+    "contact": "Contatto",
+    "login": "Accedi",
+    "language": "Lingua"
+  },
+  "products": {
+    "title": "Il nostro prodotto",
+    "subtitle": "Con Open Close gestite facilmente i vostri orari di apertura anche in viaggio",
+    "packageName": "La nostra soluzione web",
+    "description": "Con Open Close potete modificare i vostri orari di apertura in qualsiasi momento e ovunque vi troviate. Potete inserire date speciali e gestire orari speciali e giorni di chiusura – in modo semplice e chiaro.",
+    "features": {
+      "feature1": "Orari modificabili in pochi secondi.",
+      "feature2": "Informazioni chiare e rapide per i clienti.",
+      "feature3": "Integrazione semplice nel vostro sito web.",
+      "feature4": "Adattabile al design del vostro sito.",
+      "feature5": "Impostazioni multilingue flessibili."
+    },
+    "price": "CHF12/anno",
+    "buyNow": "Acquista ora"
+  },
+  "faq": {
+    "title": "Domande frequenti",
+    "subtitle": "Qui trovate le risposte alle domande più comuni",
+    "questions": {
+      "registration": "Come posso registrarmi?",
+      "paymentMethods": "Quali metodi di pagamento sono accettati?",
+      "subscription": "Posso annullare il mio abbonamento?",
+      "moneyBack": "Esiste una garanzia di rimborso?"
+    },
+    "answers": {
+      "registration": "La registrazione funziona come sulla maggior parte dei siti web: cliccate su \"Registrati\" o \"Login\", inserite il vostro indirizzo e-mail e la vostra password e confermate. Se non avete ancora un account, potete crearne uno tramite \"Registrati\".",
+      "paymentMethods": "Sono disponibili tutti i metodi di pagamento online più comuni, così potete scegliere quello più adatto a voi. Sono accettate carte di credito, carte di debito e soluzioni di pagamento digitali moderne.",
+      "subscription": "Sì, potete annullare il vostro abbonamento in qualsiasi momento. La cancellazione avviene facilmente dal vostro account utente e non verranno addebitati ulteriori costi dopo la fine del periodo già pagato.",
+      "moneyBack": "Sì, è disponibile una garanzia di rimborso. Se non siete soddisfatti dell’acquisto, potete richiedere un rimborso entro il periodo previsto e l'importo verrà restituito senza complicazioni."
+    }
+  },
+  "contact": {
+    "title": "Contatto",
+    "subtitle": "Avete domande? Saremo lieti di aiutarvi",
+    "introTitle": "Non vediamo l'ora di sentirvi!",
+    "introText": "Contattateci – il nostro team è a vostra disposizione e risponderà il prima possibile.",
+    "email": "E-mail",
+    "phone": "Telefono",
+    "hours": "Orari di apertura",
+    "hoursValue": "Lun-Ven: 9:00-18:00",
+    "form": {
+      "name": "Nome *",
+      "namePlaceholder": "Il vostro nome",
+      "email": "E-mail *",
+      "emailPlaceholder": "Il vostro indirizzo e-mail",
+      "subject": "Oggetto *",
+      "subjectPlaceholder": "Oggetto",
+      "message": "Messaggio *",
+      "messagePlaceholder": "Il vostro messaggio",
+      "send": "Invia messaggio"
+    }
+  },
+  "footer": {
+    "description": "Con Open Close potete adattare facilmente i vostri orari di apertura",
+    "navigation": "Navigazione",
+    "legal": "Note legali",
+    "home": "Home",
+    "products": "Prodotto",
+    "faq": "FAQ",
+    "contact": "Contatto",
+    "imprint": "Impressum",
+    "privacy": "Privacy",
+    "terms": "Termini",
+    "cookies": "Politica sui cookie"
+  },
+  "@home": {
+    "heroTitle": {
+      "description": "Titolo principale della homepage"
+    },
+    "heroSubtitle": {
+      "description": "Sottotitolo che spiega il servizio"
+    }
+  },
+  "@navigation": {
+    "home": {
+      "description": "Link di navigazione alla sezione Home"
+    }
+  },
+  "settings": {
+    "global": {
+      "userAdminTab": "Panoramica utenti",
+      "statisticTab": "Statistiche",
+      "settingsTab": "Impostazioni",
+      "ordersTab": "Ordini",
+      "iFrameTab": "iFrame",
+      "logoutBtn": "Disconnetti",
+      "save": "Salva",
+      "back": "Indietro",
+      "discard": "Annulla",
+      "delete": "Elimina",
+      "open": "Aperto",
+      "closed": "Chiuso",
+      "date": "Data",
+      "language": "Lingua"
+    },
+    "orders": {
+      "iFrame1Year": "Ordine: iFrame - 1 anno",
+      "begin": "Inizio:",
+      "expiry": "Scadenza:"
+    },
+    "information": {
+      "company": "Azienda",
+      "name": "Nome",
+      "surname": "Cognome",
+      "street": "Via",
+      "postalCode": "CAP",
+      "city": "Città",
+      "country": "Paese",
+      "phoneNumber": "Numero di telefono",
+      "latitude": "Latitudine",
+      "longitude": "Longitudine",
+      "saveButton": "Salva",
+      "savedText": "Salvato!",
+      "saveFailedText": "Salvataggio non riuscito!",
+      "renewButton": "Rinnova",
+      "renewedText": "Rinnovato!",
+      "renewFailedText": "Rinnovo non riuscito!"
+    },
+    "statistics": {
+      "title": "Statistiche",
+      "customerAmount": "Numero di clienti:",
+      "customerRenewAmount": "Numero di clienti che hanno rinnovato:",
+      "customerNonRenewAmount": "Numero di clienti che non hanno rinnovato:"
+    },
+    "iframe": {
+      "displaySettings": {
+        "title": "Impostazioni di visualizzazione",
+        "font": {
+          "label": "Carattere",
+          "size": "Dimensione",
+          "weight": "Spessore",
+          "style": "Stile",
+          "styleNormal": "Normale",
+          "styleItalic": "Corsivo",
+          "styleOblique": "Obliquo"
+        },
+        "colors": {
+          "label": "Colori",
+          "fontColor": "Testo",
+          "primaryColor": "Primario",
+          "secondaryColor": "Secondario",
+          "backgroundColor": "Sfondo",
+          "open": "aperto",
+          "closed": "chiuso",
+          "soon": "presto"
+        },
+        "border": {
+          "label": "Bordo",
+          "size": "Larghezza",
+          "weight": "Spessore",
+          "style": "Stile",
+          "styleSolid": "Normale",
+          "styleDashed": "Tratteggiato",
+          "styleDotted": "Puntinato"
+        },
+        "shadow": {
+          "offsetX": "Offset X",
+          "offsetY": "Offset Y",
+          "blur": "Sfocatura",
+          "color": "Colore"
+        }
+      },
+      "specialDays": {
+        "title": "Giorni speciali",
+        "empty": "Nessun orario speciale inserito",
+        "addSpecialDay": "Aggiungi giorno speciale",
+        "deleteSpecialDay": "Elimina giorno speciale",
+        "typeClosed": "Chiuso",
+        "typeOpen": "Aperto",
+        "allDayClosed": "Chiuso tutto il giorno",
+        "open": "Aperto",
+        "close": "Chiuso",
+        "Date": "Data",
+        "dayFormat": "GG",
+        "monthFormat": "MM",
+        "yearFormat": "AAAA",
+        "namePlaceholder": "Nome del giorno speciale (es. Natale)",
+        "descriptionPlaceholder": "Descrizione"
+      },
+      "weekplan": {
+    "title": "Pianificazione settimanale",
+    "timeWindow": "Aggiungi orario",
+    "monday": "Lunedì",
+    "mondayShort": "Lu",
+    "tuesday": "Martedì",
+    "tuesdayShort": "Ma",
+    "wednesday": "Mercoledì",
+    "wednesdayShort": "Me",
+    "thursday": "Giovedì",
+    "thursdayShort": "Gi",
+    "friday": "Venerdì",
+    "fridayShort": "Ve",
+    "saturday": "Sabato",
+    "saturdayShort": "Sa",
+    "sunday": "Domenica",
+    "sundayShort": "Do"
+  },
+      "close": {
+        "title": "Chiudi",
+        "closeName": "Chiusura non programmata",
+        "closeDescription": "Descrizione",
+        "closed": "Chiuso",
+        "untilDate": "Fino al"
+      }
+    }
+  },
+  "login": {
+    "loginTitle": "Accesso",
+    "registerTitle": "Registrati",
+    "loginIncorrect": "Email o password errati!",
+    "registerIncorrect": "Non tutti i campi sono stati compilati, le password non corrispondono o l'email è già in uso!",
+    "email": "Email",
+    "password": "Password",
+    "passwordConfirm": "Conferma Password",
+    "company": "Azienda",
+    "name": "Nome",
+    "surname": "Cognome",
+    "street": "Via",
+    "postalCode": "Codice Postale",
+    "city": "Città",
+    "country": "Paese",
+    "phoneNumber": "Numero di Telefono",
+    "latitude": "Latitudine",
+    "longitude": "Longitudine"
+  },
+  "iframe": {
+    "title": "Orari di apertura",
+    "status": {
+      "open": "Aperto",
+      "closed": "Chiuso",
+      "soon": "Chiude a breve"
+    },
+    "sections": {
+      "today": "Oggi",
+      "weekplan": "Pianificazione settimanale",
+      "specialDays": "Giorni speciali"
+    },
+    "weekdays": {
+      "mo": "Lu",
+      "tu": "Ma",
+      "we": "Me",
+      "th": "Gi",
+      "fr": "Ve",
+      "sa": "Sa",
+      "su": "Do"
+    }
+  }
+}

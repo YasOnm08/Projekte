@@ -1,0 +1,10 @@
+<div class="event-card d-flex justify-content-between align-items-center p-3 {{#if closed}}event-closed{{else}}event-open{{/if}}">
+  <div>
+    <strong class="event-name d-block">
+      <i class="bi bi-{{#if closed}}x-octagon-fill{{else}}check-circle-fill{{/if}} me-2"></i>
+      {{name}}
+    </strong>
+    <span class="event-date fw-light">{{date}}</span>
+  </div>
+  <div class="event-hours fw-medium">{{#if closed}}{{lang.iframe.status.closed}}{{else}}{{hours}}{{/if}}</div>
+</div>

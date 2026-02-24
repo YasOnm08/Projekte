@@ -1,0 +1,41 @@
+<!-- Product Section -->
+<section id="products" class="section-products py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title">{{lang.products.title}}</h2>
+        <p class="section-subtitle">{{lang.products.subtitle}}</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card product-card h-100 border-0 shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <div class="card-body d-flex flex-column p-4">
+                <h5 class="card-title fw-bold text-dark mb-3">{{lang.products.packageName}}</h5>
+                <p class="card-text text-muted flex-grow-1">{{lang.products.description}}</p>
+                <div class="product-features mb-4">
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{lang.products.features.feature1}}</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{lang.products.features.feature2}}</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{lang.products.features.feature3}}</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{lang.products.features.feature4}}</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>{{lang.products.features.feature5}}</li>
+                  </ul>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                  <span class="product-price h4 fw-bold text-primary mb-0">{{lang.products.price}}</span>
+                  <a href="../payment" class="btn btn-primary px-4 py-2 fw-semibold"> <i class="fas fa-shopping-cart me-2"></i>{{lang.products.buyNow}} </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="/img/background.jpeg" class="card-img-top h-100" alt="Open Close Basic Package" style="object-fit: cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

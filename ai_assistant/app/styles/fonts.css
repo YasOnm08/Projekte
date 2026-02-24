@@ -1,0 +1,56 @@
+@font-face{
+    font-family: 'Inconsolata';
+    src: url('/fonts/serious/Inconsolata/Inconsolata-VariableFont_wdth,wght.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Merriweather';
+    src: url('/fonts/serious/Merriweather/Merriweather-Regular.tff') format('truetype');
+}
+@font-face{
+    font-family: 'Noto Sans';
+    src: url('/fonts/serious/Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Noto Serif';
+    src: url('/fonts/serious/Noto_Serif/NotoSerif-VariableFont_wdth\,wght.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Playfair Display';
+    src: url('/fonts/serious/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Poppins';
+    src: url('/fonts/serious/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Roboto';
+    src: url('/fonts/serious/Roboto/Roboto-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Ubuntu';
+    src: url('/fonts/serious/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Bangers';
+    src: url('/fonts/comic-sans-but-better/Bangers/Bangers-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Caveat';
+    src: url('/fonts/comic-sans-but-better/Caveat/Caveat-VariableFont_wght.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Frederika the Great';
+    src: url('/fonts/comic-sans-but-better/Fredericka_the_Great/FrederickatheGreat-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Rock Salt';
+    src: url('/fonts/RockSalt.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Sofadi One';
+    src: url('/fonts/comic-sans-but-better/Sofadi_One/SofadiOne-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Zilla Slab Highlight';
+    src: url('/fonts/comic-sans-but-better/Zilla_Slab_Highlight/ZillaSlabHighlight-Regular.ttf') format('truetype');
+}

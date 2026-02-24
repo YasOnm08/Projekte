@@ -1,0 +1,45 @@
+/* Make sure the parent container of #faq takes up the full viewport height */
+.faq-container{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    height: 100vh;           /* Full viewport height */
+    padding: 0 10px;         /* Optional padding to ensure spacing on small screens */
+}
+#faq{
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
+    background-color: var(--faq-background-color); /* Use variable for background */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    overflow-y: scroll; /* Allow vertical scrolling if content overflows */
+    margin: 2rem auto;
+    height: 80vh;
+}
+#faq h2{
+    text-align: center;
+    color: var(--faq-heading-color); /* Use variable for heading color */
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.faq-item{
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--faq-item-background-color); /* Use variable for item background */
+    transition: background-color 0.3s ease-in-out;
+}
+.faq-item h3{
+    color: var(--faq-item-heading-color); /* Use variable for item heading color */
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+.faq-item p{
+    color: var(--faq-item-text-color); /* Use variable for item text color */
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+.faq-item:hover{
+    background-color: var(--faq-item-hover-background-color); /* Use variable for hover background */
+}

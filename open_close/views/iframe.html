@@ -1,0 +1,11 @@
+<div id="iframe-app-{{requestedSize}}" class="iframe-container {{#if userConfig}}custom-styles{{/if}} size-{{requestedSize}}">
+  {{{customStyles}}}
+
+  <div class="iframe-content">{{> iframe/statusHeader requestedSize=requestedSize }} {{#if showWarning}} {{> iframe/warningBox requestedSize=requestedSize }} {{/if}} {{#if showContentArea}} {{> iframe/contentArea requestedSize=requestedSize }} {{/if}}</div>
+</div>
+
+<script>
+  setInterval(() => {
+    window.location.reload();
+  }, 60000);
+</script>

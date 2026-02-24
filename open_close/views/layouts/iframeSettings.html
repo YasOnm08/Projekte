@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .sidebar-item {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .sidebar-item:hover {
+            background-color: #f0f0f0;
+        }
+        .sidebar-item.active {
+            background-color: #e9ecef;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+
+    <div class="bg-white p-3 p-md-4 rounded-4 shadow-sm d-flex flex-column" style="width: 95vw; height: 90vh; max-width: 1600px; max-height: 1000px;">
+        <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4">
+            <ul class="nav nav-tabs border-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/settings">{{lang.settings.global.settingsTab}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/settings/orders">{{lang.settings.global.ordersTab}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/settings/iframe">{{lang.settings.global.iFrameTab}}</a>
+                </li>
+            </ul>
+            <div>
+                <button id="logout-btn" class="btn btn-link">{{lang.settings.global.logoutBtn}}</button>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column flex-md-row flex-grow-1 overflow-hidden" style="min-height: 0;">
+            <!-- Sidebar (Desktop) -->
+            <div class="d-none d-md-block border-end py-3" style="width: 260px; overflow-y: auto;">
+                <div class="d-flex flex-column gap-3 ps-3">
+                    <div class="sidebar-item {{#if (eq activeTab 'close')}}active{{/if}}" data-target="close">{{lang.settings.iframe.close.title}}</div>
+                    <div class="sidebar-item {{#if (eq activeTab 'weekplan')}}active{{/if}}" data-target="weekplan">{{lang.settings.iframe.weekplan.title}}</div>
+                    <div class="sidebar-item {{#if (eq activeTab 'special')}}active{{/if}}" data-target="special">{{lang.settings.iframe.specialDays.title}}</div>
+                    <div class="sidebar-item {{#if (eq activeTab 'display')}}active{{/if}}" data-target="display">{{lang.settings.iframe.displaySettings.title}}</div>
+                </div>
+            </div>
+
+            <!-- Content (Mobile menu + panels) -->
+            <div class="d-flex flex-column flex-grow-1 overflow-hidden" style="min-height: 0;">
+                <!-- Mobile Menu (Select) -->
+                <div class="d-block d-md-none pb-3 border-bottom" style="flex-shrink: 0;">
+                    <select id="mobile-nav-select" class="form-select">
+                        <option value="close" {{#if (eq activeTab 'close')}}selected{{/if}}>{{lang.settings.iframe.close.title}}</option>
+                        <option value="weekplan" {{#if (eq activeTab 'weekplan')}}selected{{/if}}>{{lang.settings.iframe.weekplan.title}}</option>
+                        <option value="special" {{#if (eq activeTab 'special')}}selected{{/if}}>{{lang.settings.iframe.specialDays.title}}</option>
+                        <option value="display" {{#if (eq activeTab 'display')}}selected{{/if}}>{{lang.settings.iframe.displaySettings.title}}</option>
+                    </select>
+                </div>
+
+                <div class="flex-grow-1 overflow-hidden pt-3 pt-md-0" style="min-height: 0;">
+                    <div id="content-close" class="h-100 d-flex flex-column {{#unless (eq activeTab 'close')}}d-none{{/unless}} tab-content" style="min-height: 0;">
+                        {{> settingsiFrame/close}}
+                    </div>
+                    <div id="content-weekplan" class="h-100 d-flex flex-column {{#unless (eq activeTab 'weekplan')}}d-none{{/unless}} tab-content" style="min-height: 0;">
+                        {{> settingsiFrame/weekplanAll}}
+                    </div>
+                    <div id="content-special" class="h-100 d-flex flex-column {{#unless (eq activeTab 'special')}}d-none{{/unless}} tab-content" style="min-height: 0;">
+                        {{> settingsiFrame/specialDayAll}}
+                    </div>
+                    <div id="content-display" class="h-100 d-flex flex-column {{#unless (eq activeTab 'display')}}d-none{{/unless}} tab-content" style="min-height: 0;">
+                        {{> settingsiFrame/displaySettings}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const mobileNavSelect = document.getElementById('mobile-nav-select');
+            const contents = document.querySelectorAll('.tab-content');
+
+            const triggerDisplaySettingsEnter = () => {
+                const root = document.querySelector('#content-display [data-ds-root]');
+                if (!root) return;
+
+                // Restart animation each time the tab is shown
+                root.classList.remove('ds-enter');
+                root.classList.remove('ds-pre-enter');
+                root.classList.add('ds-pre-enter');
+                // Force reflow
+                void root.offsetHeight;
+                requestAnimationFrame(() => {
+                    root.classList.remove('ds-pre-enter');
+                    root.classList.add('ds-enter');
+                });
+            };
+
+            const switchTab = (target) => {
+                // Update URL without reloading
+                const currentUrl = new URL(window.location);
+                let newPath = window.location.pathname;
+                if (newPath.endsWith('/')) newPath = newPath.slice(0, -1);
+                
+                const validTabs = ['close', 'weekplan', 'special', 'display'];
+                const parts = newPath.split('/');
+                const lastPart = parts[parts.length - 1];
+                
+                if (validTabs.includes(lastPart)) {
+                    parts[parts.length - 1] = target;
+                    newPath = parts.join('/');
+                } else {
+                    newPath = newPath + '/' + target;
+                }
+                
+                history.pushState({ tab: target }, '', newPath);
+
+                // Update Sidebar UI
+                sidebarItems.forEach(i => {
+                    if (i.getAttribute('data-target') === target) {
+                        i.classList.add('active');
+                    } else {
+                        i.classList.remove('active');
+                    }
+                });
+
+                // Update Mobile Select UI
+                if (mobileNavSelect) {
+                    mobileNavSelect.value = target;
+                }
+
+                // Update Content
+                contents.forEach(c => {
+                    c.classList.add('d-none');
+                });
+
+                const targetId = 'content-' + target;
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.remove('d-none');
+                }
+
+                // Some controls (e.g., color inputs) may be inside initially hidden tabs.
+                setupColorPickers();
+
+                if (target === 'display') {
+                    triggerDisplaySettingsEnter();
+                }
+            };
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const target = item.getAttribute('data-target');
+                    switchTab(target);
+                });
+            });
+
+            if (mobileNavSelect) {
+                mobileNavSelect.addEventListener('change', (e) => {
+                    switchTab(e.target.value);
+                });
+            }
+
+            const setupColorPickers = () => {
+                // Robust: find every color input and sync it with the text input in the same row/container.
+                document.querySelectorAll('input[type="color"]').forEach(colorInput => {
+                    const parent = colorInput.parentElement;
+                    if (!parent) return;
+
+                    const textInput = parent.querySelector('input[type="text"]');
+                    if (!textInput) return;
+
+                    // Avoid double-binding if called multiple times (tab switch)
+                    if (colorInput.dataset.bound === '1') return;
+                    colorInput.dataset.bound = '1';
+
+                    const normalizeHex = (val) => {
+                        if (!val) return null;
+                        const v = val.trim();
+                        // input[type=color] supports only #RRGGBB
+                        if (v.length === 7 && v.startsWith('#')) return v;
+                        return null;
+                    };
+
+                    // Initial sync: if text has valid hex, apply to picker
+                    const initial = normalizeHex(textInput.value);
+                    if (initial) colorInput.value = initial;
+
+                    const onText = () => {
+                        const hex = normalizeHex(textInput.value);
+                        if (hex) colorInput.value = hex;
+                    };
+
+                    const onColor = () => {
+                        textInput.value = colorInput.value;
+                        // Trigger any existing listeners on the text field
+                        textInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    };
+
+                    textInput.addEventListener('input', onText);
+                    textInput.addEventListener('change', onText);
+                    colorInput.addEventListener('input', onColor);
+                    colorInput.addEventListener('change', onColor);
+                });
+            };
+
+            const setupSelects = () => {
+                const selects = document.querySelectorAll('select[data-value]');
+                selects.forEach(select => {
+                    const value = select.getAttribute('data-value');
+                    if (value) {
+                        select.value = value;
+                    }
+                });
+            };
+
+            // Logout Logic
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    // Clear localStorage
+                    localStorage.clear();
+                    
+                    // Clear Cookies
+                    document.cookie.split(";").forEach((c) => {
+                        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                    });
+
+                    // Redirect to Home
+                    window.location.href = '/';
+                });
+            }
+
+            setupColorPickers();
+            setupSelects();
+
+            // If the display tab is initially active (server-rendered), animate it once.
+            const displayContent = document.getElementById('content-display');
+            if (displayContent && !displayContent.classList.contains('d-none')) {
+                triggerDisplaySettingsEnter();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

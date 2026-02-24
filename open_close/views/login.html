@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/login.css" />
+<div class="m-5 card card-body shadow">
+  <h1 class="mb-4">{{lang.login.loginTitle}}</h1>
+  <form>
+    <div class="alert alert-danger d-none" role="alert">{{lang.login.loginIncorrect}}</div>
+    <div class="form-group">
+      <label for="email" class="fs-3 m-1">{{lang.login.email}}</label>
+      <input type="email" name="email" class="emailInput form-control m-1" required />
+    </div>
+    <div class="form-group">
+      <label for="password" class="fs-3 m-1">{{lang.login.password}}</label>
+      <input type="password" name="password" class="passwordInput form-control m-1" required />
+    </div>
+    <button type="submit" class="loginButton btn btn-primary position-relative start-50 translate-middle mt-5 fs-4">{{lang.login.loginTitle}}</button>
+  </form>
+</div>
+<script>
+  document.querySelector(".loginButton").addEventListener("click", async (event) => {
+    event.preventDefault();
+    try {
+      const data = JSON.stringify({
+        email: document.querySelector(".emailInput").value,
+        password: document.querySelector(".passwordInput").value,
+      });
+
+      const bearer = await fetch(window.location.protocol + "//" + window.location.host + "/api/v1/users/login", {
+        method: "POST",
+        body: data,
+        headers: new Headers({ "content-type": "application/json" }),
+      });
+
+      const token = (await bearer.json()).token;
+
+      if (token) {
+        document.cookie = "token=" + token + ";path=/";
+        window.location.href = "/settings";
+      } else {
+        throw new Error("Invalid Credentials");
+      }
+    } catch (error) {
+      document.querySelector(".alert").classList.remove("d-none");
+    }
+  });
+</script>

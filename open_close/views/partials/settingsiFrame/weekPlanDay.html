@@ -1,0 +1,25 @@
+<div id="weekplan-detail" class="d-none flex-column h-100 bg-white">
+    <div class="text-center pt-3 pt-md-4">
+        <h2 id="detail-day-name" class="text-secondary mb-3 mb-md-4" style="font-weight: 300;">{{lang.settings.iframe.weekplan.monday}}</h2>
+        
+        <div class="d-flex justify-content-center mb-3 mb-md-4">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="weekplan-is-closed">
+                <label class="form-check-label text-secondary" for="weekplan-is-closed">{{lang.settings.global.closed}}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-grow-1 px-3 px-md-5 overflow-auto">
+        <div id="time-slots-container">
+            <!-- Time slots will be added here -->
+        </div>
+        
+        <button type="button" id="btn-add-slot" class="btn btn-outline-secondary w-100 text-secondary mt-3" style="border-color: #ccc;">{{lang.settings.iframe.weekplan.timeWindow}}</button>
+    </div>
+
+    <div class="mt-auto pt-3 d-flex flex-column flex-md-row justify-content-end gap-3 px-3 px-md-5 pb-3">
+        <button type="button" class="btn btn-outline-secondary px-4 w-100 w-md-auto" id="btn-back-weekplan">{{lang.settings.global.back}}</button>
+        <button type="button" class="btn btn-outline-secondary px-4 w-100 w-md-auto" id="btn-save-weekplan">{{lang.settings.global.save}}</button>
+    </div>
+</div>

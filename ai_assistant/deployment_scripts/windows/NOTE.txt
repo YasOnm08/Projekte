@@ -1,0 +1,7 @@
+You will need to make three folders:
+
+node-bin - contains nodejs portable
+python-bin - contains python3 portable - don't forget to add the .pth file and adjust it accordingly, because import site is normally missing. -- also put your python files in here too, else it will not run!
+ollama.bin - contains ollama portable
+
+you also need vc redist 2019

@@ -1,0 +1,342 @@
+<div id="special-day-list" class="d-flex flex-column flex-grow-1 h-100 px-3 px-md-4 py-3 overflow-hidden" style="min-height: 0;">
+    <div class="flex-grow-1 overflow-auto" style="min-height: 0;">
+        {{#if iFrame.specialDays.length}}
+            {{#each iFrame.specialDays}}
+            <div class="special-day-item border rounded p-3 mb-3 row mx-0 align-items-center bg-white shadow-sm" style="border-color: #e0e0e0 !important; cursor: pointer;">
+                <div class="col-12 col-md-4 fw-medium text-secondary mb-1 mb-md-0">{{this.name}}</div>
+                <div class="col-12 col-md-4 text-start text-md-center text-secondary mb-1 mb-md-0">
+                    {{#each this.openTime}}
+                        {{#if this.closed}}
+                            {{lang.settings.iframe.specialDays.closed}}
+                        {{else}}
+                            {{this.time.start}} - {{this.time.end}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+                <div class="col-12 col-md-4 text-start text-md-end text-secondary date-display" data-date="{{this.date}}">
+                    {{this.date}}
+                </div>
+
+                <!-- Hidden Data Store -->
+                <div class="d-none data-store">
+                    <span class="data-name">{{this.name}}</span>
+                    <span class="data-date-raw">{{this.date}}</span>
+                    <div class="data-opentimes">
+                        {{#each this.openTime}}
+                            <div data-closed="{{this.closed}}" data-start="{{this.time.start}}" data-end="{{this.time.end}}"></div>
+                        {{/each}}
+                    </div>
+                    <div class="data-descriptions">
+                        {{#each this.description}}
+                            <div data-lang="{{@key}}" data-text="{{this}}"></div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        {{else}}
+            <div class="text-center text-muted mt-5">{{lang.settings.iframe.specialDays.empty}}</div>
+        {{/if}}
+    </div>
+    
+    <div class="mt-auto pt-2" style="flex-shrink: 0; position: sticky; bottom: 0; background: #fff;">
+        <button id="btn-new-special" class="btn btn-outline-secondary w-100 text-secondary" style="border-color: #ccc;">{{lang.settings.iframe.specialDays.addSpecialDay}}</button>
+    </div>
+</div>
+
+{{> settingsiFrame/specialDay}}
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const userId = "{{ iFrame.userId }}";
+        let currentEditId = null;
+
+        // Date Formatting for List
+        document.querySelectorAll('.date-display').forEach(el => {
+            const dateStr = el.getAttribute('data-date');
+            if(dateStr) {
+                const date = new Date(dateStr);
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                el.textContent = `${day}.${month}.${year}`;
+            }
+        });
+
+        // View Switching Logic
+        const listContainer = document.getElementById('special-day-list');
+        const detailForm = document.getElementById('special-day-form');
+        const backBtn = document.getElementById('btn-back-special');
+        const newBtn = document.getElementById('btn-new-special');
+        const cancelCreateBtn = document.getElementById('btn-cancel-create');
+        const deleteBtn = document.getElementById('btn-delete-special');
+        const addLangBtn = document.getElementById('btn-add-lang');
+        
+        const editButtons = document.getElementById('edit-buttons');
+        const createButtons = document.getElementById('create-buttons');
+
+        const isClosedCheckbox = document.getElementById('detail-is-closed');
+        const openInput = document.getElementById('detail-open');
+        const closeInput = document.getElementById('detail-close');
+        
+        const langSelect = document.getElementById('detail-lang-select');
+        const descText = document.getElementById('detail-desc-text');
+        let currentDescriptions = {};
+
+        if (langSelect && descText) {
+            langSelect.addEventListener('change', () => {
+                const lang = langSelect.value;
+                descText.value = currentDescriptions[lang] || '';
+            });
+
+            descText.addEventListener('input', () => {
+                const lang = langSelect.value;
+                currentDescriptions[lang] = descText.value;
+            });
+        }
+
+        if (isClosedCheckbox) {
+            isClosedCheckbox.addEventListener('change', () => {
+                if (isClosedCheckbox.checked) {
+                    openInput.disabled = true;
+                    closeInput.disabled = true;
+                    openInput.value = '';
+                    closeInput.value = '';
+                } else {
+                    openInput.disabled = false;
+                    closeInput.disabled = false;
+                }
+            });
+        }
+
+        const resetForm = () => {
+            currentEditId = null;
+            document.getElementById('detail-name').value = '';
+            document.getElementById('detail-open').value = '';
+            document.getElementById('detail-close').value = '';
+            document.getElementById('detail-date').value = '';
+            
+            currentDescriptions = {};
+            if(langSelect) langSelect.value = 'de';
+            if(descText) descText.value = '';
+            
+            if (isClosedCheckbox) {
+                isClosedCheckbox.checked = false;
+                openInput.disabled = false;
+                closeInput.disabled = false;
+            }
+        };
+
+        const showDetail = () => {
+            listContainer.classList.remove('d-flex');
+            listContainer.classList.add('d-none');
+            detailForm.classList.remove('d-none');
+            detailForm.classList.add('d-flex');
+        };
+
+        const showList = () => {
+            detailForm.classList.remove('d-flex');
+            detailForm.classList.add('d-none');
+            listContainer.classList.remove('d-none');
+            listContainer.classList.add('d-flex');
+        };
+
+        // New Appointment Click
+        if (newBtn) {
+            newBtn.addEventListener('click', () => {
+                resetForm();
+                
+                editButtons.classList.add('d-none');
+                editButtons.classList.remove('d-flex');
+                createButtons.classList.remove('d-none');
+                createButtons.classList.add('d-flex');
+
+                showDetail();
+            });
+        }
+
+        // Existing Item Click
+        document.querySelectorAll('.special-day-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const dataStore = item.querySelector('.data-store');
+                
+                // Populate Detail View
+                const name = dataStore.querySelector('.data-name').textContent;
+                const dateRaw = dataStore.querySelector('.data-date-raw').textContent;
+                const index = Array.from(listContainer.querySelectorAll('.special-day-item')).indexOf(item);
+                currentEditId = index;
+                
+                document.getElementById('detail-name').value = name;
+                
+                const dateObj = new Date(dateRaw);
+                if (!isNaN(dateObj)) {
+                    const yyyy = dateObj.getFullYear();
+                    const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
+                    const dd = String(dateObj.getDate()).padStart(2, '0');
+                    document.getElementById('detail-date').value = `${yyyy}-${mm}-${dd}`;
+                }
+
+                const timeDiv = dataStore.querySelector('.data-opentimes div');
+                if (timeDiv) {
+                    const isClosed = timeDiv.getAttribute('data-closed') === 'true';
+                    if (isClosedCheckbox) {
+                        isClosedCheckbox.checked = isClosed;
+                        if (isClosed) {
+                            openInput.disabled = true;
+                            closeInput.disabled = true;
+                            openInput.value = '';
+                            closeInput.value = '';
+                        } else {
+                            openInput.disabled = false;
+                            closeInput.disabled = false;
+                            document.getElementById('detail-open').value = timeDiv.getAttribute('data-start');
+                            document.getElementById('detail-close').value = timeDiv.getAttribute('data-end');
+                        }
+                    }
+                } else {
+                    if (isClosedCheckbox) {
+                        isClosedCheckbox.checked = true;
+                        openInput.disabled = true;
+                        closeInput.disabled = true;
+                    }
+                }
+
+                const descContainer = document.getElementById('detail-descriptions');
+                
+                currentDescriptions = {};
+                dataStore.querySelectorAll('.data-descriptions div').forEach(desc => {
+                    currentDescriptions[desc.getAttribute('data-lang')] = desc.getAttribute('data-text');
+                });
+                
+                if(langSelect) {
+                    langSelect.value = 'de';
+                    descText.value = currentDescriptions['de'] || '';
+                }
+
+                createButtons.classList.add('d-none');
+                createButtons.classList.remove('d-flex');
+                editButtons.classList.remove('d-none');
+                editButtons.classList.add('d-flex');
+
+                showDetail();
+            });
+        });
+
+        if (backBtn) backBtn.addEventListener('click', showList);
+        if (cancelCreateBtn) cancelCreateBtn.addEventListener('click', showList);
+
+        // Data Collection Helper
+        const getAllSpecialDays = () => {
+            const days = [];
+            listContainer.querySelectorAll('.special-day-item').forEach(item => {
+                const dataStore = item.querySelector('.data-store');
+                const name = dataStore.querySelector('.data-name').textContent;
+                const date = dataStore.querySelector('.data-date-raw').textContent;
+                
+                const openTimes = [];
+                dataStore.querySelectorAll('.data-opentimes div').forEach(t => {
+                    openTimes.push({
+                        closed: t.getAttribute('data-closed') === 'true',
+                        time: {
+                            start: t.getAttribute('data-start') || null,
+                            end: t.getAttribute('data-end') || null
+                        }
+                    });
+                });
+
+                const description = {};
+                dataStore.querySelectorAll('.data-descriptions div').forEach(d => {
+                    description[d.getAttribute('data-lang')] = d.getAttribute('data-text');
+                });
+
+                days.push({ name, date, openTime: openTimes, description });
+            });
+            return days;
+        };
+
+        const saveToServer = async (newSpecialDays) => {
+            const token = localStorage.getItem('token');
+            const headers = { 'Content-Type': 'application/json' };
+            if (token) {
+                headers['Authorization'] = `Bearer ${token}`;
+            }
+
+            try {
+                const response = await fetch(`/api/v1/users/${userId}/config`, {
+                    method: 'PATCH',
+                    headers: headers,
+                    body: JSON.stringify({ specialDays: newSpecialDays })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Fehler beim Speichern');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Netzwerkfehler');
+            }
+        };
+
+        // Form Submit
+        detailForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('detail-name').value;
+            const date = document.getElementById('detail-date').value;
+            const open = document.getElementById('detail-open').value;
+            const close = document.getElementById('detail-close').value;
+            
+            const description = {};
+            for (const [key, value] of Object.entries(currentDescriptions)) {
+                if (value && value.trim() !== '') {
+                    description[key] = value;
+                }
+            }
+
+            const openTime = [];
+            const isClosed = isClosedCheckbox ? isClosedCheckbox.checked : false;
+
+            if (isClosed) {
+                openTime.push({ closed: true, time: { start: null, end: null } });
+            } else {
+                if (open && close) {
+                    openTime.push({ closed: false, time: { start: open, end: close } });
+                } else {
+                    // If user unchecked closed but didn't provide times, we might want to default to closed or handle error.
+                    // For now, let's assume it's closed if times are missing, or just send empty times.
+                    // Based on previous logic:
+                    openTime.push({ closed: true, time: { start: null, end: null } });
+                }
+            }
+
+            const newEntry = { name, date, openTime, description };
+            
+            const allDays = getAllSpecialDays();
+            
+            if (currentEditId !== null) {
+                // Update existing
+                allDays[currentEditId] = newEntry;
+            } else {
+                // Create new
+                allDays.push(newEntry);
+            }
+
+            await saveToServer(allDays);
+        });
+
+        // Delete
+        if (deleteBtn) {
+            deleteBtn.addEventListener('click', async () => {
+                if (currentEditId !== null && confirm('Wirklich löschen?')) {
+                    const allDays = getAllSpecialDays();
+                    allDays.splice(currentEditId, 1);
+                    await saveToServer(allDays);
+                }
+            });
+        }
+    });
+</script>

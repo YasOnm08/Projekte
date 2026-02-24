@@ -1,0 +1,1 @@
+DELETE http://127.0.0.1:5500/api/v1/users/019a73a1-41f9-71d4-992d-65c9797fb8be/config HTTP/1.1

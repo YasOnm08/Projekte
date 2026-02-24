@@ -1,0 +1,45 @@
+/* Styling for the credits container */
+.credits-container{
+  padding: 2rem;
+}
+.credits-section{
+  max-width: 900px;
+  height: 80dvh;
+  margin: auto;
+  background: var(--doc-background-color); /* Use variable for background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+}
+.title{
+  font-size: calc(var(--font-size)*2);
+  color: var(--doc-title-color); /* Use variable for title color */
+  margin-bottom: 1.5rem;
+}
+.subtitle{
+  font-size: calc(var(--font-size)*1.5);
+  color: var(--doc-subtitle-color); /* Use variable for subtitle color */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.paragraph{
+  font-size: calc(var(--font-size));
+  color: var(--doc-paragraph-color); /* Use variable for paragraph color */
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+/* Styling for the credit buttons */
+.credit-btn{
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  background-color: var(--button-background-color); /* Button background */
+  color: var(--button-text-color); /* Button text */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.credit-btn:hover{
+  background-color: var(--button-hover-background-color); /* Button hover */
+}

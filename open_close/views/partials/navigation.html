@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container">
+    <!-- Logo and Brand -->
+    <div class="d-flex align-items-center">
+      <div class="hero-image-container me-2">
+        <img src="/img/logo.png" alt="logo" class="logo" style="height: 40px; width: auto" />
+      </div>
+      <a class="navbar-brand fw-bold fs-4" href="#"> <i class="fas fa-cube me-2"></i>{{lang.appTitle}} </a>
+    </div>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Content -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Main Navigation -->
+      <ul class="navbar-nav me-auto ms-lg-4 text-center text-lg-start">
+        <li class="nav-item mx-lg-3 my-2 my-lg-0">
+          <a class="nav-link fw-medium" href="#">{{lang.navigation.home}}</a>
+        </li>
+        <li class="nav-item mx-lg-3 my-2 my-lg-0">
+          <a class="nav-link fw-medium" href="#products">{{lang.navigation.products}}</a>
+        </li>
+        <li class="nav-item mx-lg-3 my-2 my-lg-0">
+          <a class="nav-link fw-medium" href="#faq">{{lang.navigation.faq}}</a>
+        </li>
+        <li class="nav-item mx-lg-3 my-2 my-lg-0">
+          <a class="nav-link fw-medium" href="#contact">{{lang.navigation.contact}}</a>
+        </li>
+      </ul>
+
+      <!-- Language and Login -->
+      <div class="d-flex flex-column flex-lg-row align-items-center ms-lg-4 text-center">
+        <!-- Language Dropdown -->
+        <div class="dropdown me-lg-4 mb-3 mb-lg-0">
+          <a class="nav-link d-flex align-items-center justify-content-center fw-medium" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="fas fa-globe me-2"></i>
+            <span>{{lang.navigation.language}}</span>
+          </a>
+          <ul class="dropdown-menu text-center text-lg-start">
+            <li><a class="dropdown-item" href="/en">English</a></li>
+            <li><a class="dropdown-item" href="/fr">Français</a></li>
+            <li><a class="dropdown-item" href="/de">Deutsch</a></li>
+            <li><a class="dropdown-item" href="/es">Español</a></li>
+            <li><a class="dropdown-item" href="/it">Italiano</a></li>
+          </ul>
+        </div>
+
+        <!-- Login Button -->
+        <button type="button" class="btn btn-primary px-4 py-2 fw-medium" onclick="location.href='{{#if loggedIn}} ../settings {{else}} ../login {{/if}}'">{{login}}</button>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,3 @@
+on linux it is slightly easier
+
+i'd say to create a preparation script for dnf/yum and apt based systems, which basically downloads the dependencies via the package manager, and ollama via the usual script

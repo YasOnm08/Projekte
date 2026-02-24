@@ -1,0 +1,21 @@
+PATCH http://127.0.0.1:5500/api/v1/users/019a73a1-41f9-71d4-992d-65c9797fb8be/config HTTP/1.1
+Content-Type: application/json
+
+{
+  "specialDays": [
+    {
+      "name": "valid Time Test",
+      "date": "2025-11-15T00:00:00.000Z",
+      "openTime": [
+        {
+          "closed": false,
+          "time": {
+            "start": "09:00",
+            "end": "01:00"
+          }
+        }
+      ]
+    }
+  ]
+}
+

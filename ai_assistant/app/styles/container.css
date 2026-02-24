@@ -1,0 +1,29 @@
+/* container.css */
+.container{
+    display: flex;
+    width: 100vw;
+    height: 90dvh;
+    padding-top: 1dvh;
+}
+.left-panel{
+    width: 25vw; /* Adjust as needed */
+    transition: width 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transitions for all properties */
+    background-color: var(--left-panel-background-color); /* Use variable for background color */
+    border-radius: 0 1em 0 0;
+    margin-left: 0;
+    padding-right: 1em;
+}
+.left-panel.hidden{
+    opacity: 0; /* Fade out when hidden */
+    width: 0; /* Collapse width to 0 */
+    visibility: hidden; /* Hide visibility while collapsing */
+}
+.conversation-container{
+    flex: 1;
+    transition: margin-left 0.3s ease; /* Smooth margin adjustment */
+    background-color: var(--conversation-background-color); /* Use variable for background color */
+    border-radius: 1em 0 0 0;
+}
+.conversation-container.collapsed{
+    margin-left: 1vw; /* Space for the left panel */
+}

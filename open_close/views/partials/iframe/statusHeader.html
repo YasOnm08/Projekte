@@ -1,0 +1,17 @@
+<div class="status-header d-flex flex-wrap align-items-center justify-content-between mb-4 size-{{requestedSize}} status-bg-{{statusClass}}">
+  <div class="status-badge-container d-flex align-items-center gap-2 mb-2 mb-sm-0">
+    <div class="status-badge {{statusClass}} d-flex align-items-center gap-2">
+      <span class="status-icon">
+        <i class="bi bi-{{#if (eq statusClass 'open')}}check-circle-fill{{else}}x-circle-fill{{/if}}"></i>
+      </span>
+      <span class="status-text text-uppercase"> {{#if (eq statusClass 'open')}}{{lang.iframe.status.open}}{{else}}{{lang.iframe.status.closed}}{{/if}} </span>
+    </div>
+  </div>
+
+  {{#if closingText}}
+  <div class="closing-info d-flex align-items-center gap-2 text-muted fw-medium">
+    <i class="bi bi-clock-fill"></i>
+    <span class="closing-text">{{closingText}}</span>
+  </div>
+  {{/if}}
+</div>

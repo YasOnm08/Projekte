@@ -1,0 +1,46 @@
+{
+  "name": "interstellar_ai",
+  "version": "0.2.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "electron": "npx electron . & next dev"
+  },
+  "dependencies": {
+    "@ffmpeg/core-mt": "^0.12.6",
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/types": "^0.12.2",
+    "@ffmpeg/util": "^0.12.1",
+    "@mistralai/mistralai": "^1.0.4",
+    "axios": "^1.7.7",
+    "electron": "^32.1.2",
+    "fs": "^0.0.1-security",
+    "is-even": "^1.0.0",
+    "is-odd": "^3.0.1",
+    "math": "^0.0.3",
+    "next": "14.2.12",
+    "ollama": "^0.5.9",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^6.26.2",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.0",
+    "swiss": "^2.4.0",
+    "weather": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18.3.7",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.12",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
